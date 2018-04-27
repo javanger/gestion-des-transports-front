@@ -1,0 +1,23 @@
+<div class ="container-fluid">
+  <div class="row border border-dark">
+    <div class="col-11">
+      Itinéraires
+    </div>
+  </div>
+  <div class="row border border-dark mt-1">
+    <div class="col-8 offset-2">
+      <form>
+        <div animated class="md-form">
+          <label for="inputAdresseDepart">Adresse de départ*</label>
+          <input mdbActive mdbInputDirective type="text" name="inputAdresseDepart" id="inputAdresseDepart" class="form-control" #depart>
+        </div>
+        <div animated class="md-form">
+          <label for="inputAdresseArrive">Adresse d'arrivé*</label>
+          <input mdbActive mdbInputDirective type="text" name="inputAdresseArrive" id="inputAdresseArrive" class="form-control" #arrive>
+        </div>
+        <p>Durée du trajet {{duree}}</p>
+        <p>Distance : {{distance}}</p> 
+      </form>
+    </div>
+  </div>
+</div>
