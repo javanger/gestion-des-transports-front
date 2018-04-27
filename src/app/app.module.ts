@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './shared/menu/menu.component';
+import { ListerVehiculeComponent } from './shared/lister-vehicule/lister-vehicule.component';
+import { VehiculeComponent } from './shared/vehicule/vehicule.component';
 
 const appRoutes: Routes = [
   { path: 'collaborateur/reservations/', component: MenuComponent }, // Réservation
@@ -14,7 +16,9 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
+    MenuComponen,
+    ListerVehiculeComponent,
+    VehiculeComponentt,
   ],
   imports: [
     BrowserModule,
