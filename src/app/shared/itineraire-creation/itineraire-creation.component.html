@@ -7,14 +7,13 @@
   <div class="row border border-dark mt-1">
     <div class="col-8 offset-2">
       <form>
-        <div animated class="md-form">
           <label for="inputAdresseDepart">Adresse de départ*</label>
-          <input mdbActive mdbInputDirective type="text" name="inputAdresseDepart" id="inputAdresseDepart" class="form-control" #depart>
-        </div>
-        <div animated class="md-form">
+          <input  autocorrect="off" autocapitalize="off" spellcheck="off" 
+            type="text" name="inputAdresseDepart" id="inputAdresseDepart" class="form-control" #searchDepart [formControl]="searchControl">
+        
           <label for="inputAdresseArrive">Adresse d'arrivé*</label>
-          <input mdbActive mdbInputDirective type="text" name="inputAdresseArrive" id="inputAdresseArrive" class="form-control" #arrive>
-        </div>
+          <input autocorrect="off" autocapitalize="off" spellcheck="off" 
+           type="text" name="inputAdresseArrive" id="inputAdresseArrive" class="form-control" #searchArrive [formControl]="searchControl">
         <p>Durée du trajet {{duree}}</p>
         <p>Distance : {{distance}}</p> 
       </form>
