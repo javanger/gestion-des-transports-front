@@ -1,3 +1,30 @@
-<p>
-  lister-vehicule works!
-</p>
+<div class="container-fluid">
+  <!-- <label for="searchText">Filtrer par pseudo : </label> -->
+  <!-- <input [(ngModel)]="searchText" placeholder="search password" id="searchText"> -->
+  <h1>Véhicules</h1>
+  <div class="row">
+    <div class="d-flex flex-column">
+      <p>Filtres</p>
+      <label for="searchImmatriculation">Immatriculation: </label>
+      <input placeholder="search immatriculation" id="searchImmatriculation">
+
+      <label for="searchMarque">Marque: </label>
+      <input placeholder="search marque" id="searchMarque">
+
+    </div>
+  </div>
+
+  <div class="row d-flex flex-row-reverse">
+
+
+
+      <button type="button" class="btn btn-dark-green waves-light" mdbWavesEffect routerLink="../collegues/ajouter">Ajouter un vehicule</button>
+   
+  </div>
+  <div class="row">
+
+    <div class="col-4" *ngFor="let col of vehicules">
+      <vehicule [vehicule]="col"></vehicule>
+    </div>
+  </div>
+</div>

@@ -6,26 +6,29 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './shared/menu/menu.component';
 import { ListerVehiculeComponent } from './shared/lister-vehicule/lister-vehicule.component';
 import { VehiculeComponent } from './shared/vehicule/vehicule.component';
-
+import { VehiculeService } from './services/vehicule.service';
+import { HttpClientModule } from "@angular/common/http";
 const appRoutes: Routes = [
   { path: 'collaborateur/reservations/', component: MenuComponent }, // Réservation
   { path: 'collaborateur/annonces/', component: MenuComponent }, // Annonce
   { path: 'collaborateur/statistiques', component: MenuComponent }, // Statistique
+  { path: 'admin/vehicules', component : ListerVehiculeComponent},
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponen,
+    MenuComponent,
     ListerVehiculeComponent,
-    VehiculeComponentt,
+    VehiculeComponent
   ],
   imports: [
     BrowserModule,
     MDBBootstrapModule.forRoot(),
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [VehiculeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
