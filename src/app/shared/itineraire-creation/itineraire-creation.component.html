@@ -7,15 +7,15 @@
   <div class="row border border-dark mt-1">
     <div class="col-8 offset-2">
       <form>
-          <label for="inputAdresseDepart">Adresse de départ*</label>
-          <input  autocorrect="off" autocapitalize="off" spellcheck="off" 
-            type="text" name="inputAdresseDepart" id="inputAdresseDepart" class="form-control" #searchDepart [formControl]="searchControl">
+          <label class="mt-2" for="inputAdresseDepart">Adresse de départ*</label>
+          <input (change)="calcul()" autocorrect="off" autocapitalize="off" spellcheck="off" 
+            type="text" name="inputAdresseDepart" id="inputAdresseDepart" required class="form-control" #searchDepart [formControl]="searchControl">
         
-          <label for="inputAdresseArrive">Adresse d'arrivé*</label>
-          <input autocorrect="off" autocapitalize="off" spellcheck="off" 
-           type="text" name="inputAdresseArrive" id="inputAdresseArrive" class="form-control" #searchArrive [formControl]="searchControl">
-        <p>Durée du trajet {{duree}}</p>
-        <p>Distance : {{distance}}</p> 
+          <label class="mt-2" for="inputAdresseArrive">Adresse d'arrivé*</label>
+          <input (change)="verif()" autocorrect="off" autocapitalize="off" spellcheck="off" 
+           type="text" name="inputAdresseArrive" id="inputAdresseArrive" required class="form-control" #searchArrive [formControl]="searchControl">
+        <p class ="mt-2">Durée du trajet : {{duree}}</p>
+        <p>Distance : {{distance}}</p>
       </form>
     </div>
   </div>
