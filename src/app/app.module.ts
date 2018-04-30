@@ -8,6 +8,8 @@ import { ListerVehiculeComponent } from './shared/lister-vehicule/lister-vehicul
 import { VehiculeComponent } from './shared/vehicule/vehicule.component';
 import { VehiculeService } from './services/vehicule.service';
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from "@angular/common";
 const appRoutes: Routes = [
   { path: 'collaborateur/reservations/', component: MenuComponent }, // Réservation
   { path: 'collaborateur/annonces/', component: MenuComponent }, // Annonce
@@ -26,7 +28,10 @@ const appRoutes: Routes = [
     BrowserModule,
     MDBBootstrapModule.forRoot(),
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    CommonModule
+
   ],
   providers: [VehiculeService],
   bootstrap: [AppComponent]
