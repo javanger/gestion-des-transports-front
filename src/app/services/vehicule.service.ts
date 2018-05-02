@@ -4,6 +4,7 @@ import { Vehicule } from "../model";
 import { Observable } from "rxjs/Observable";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
 
 const URL_BACKEND = environment.apiUrl;
 @Injectable()
@@ -23,5 +24,37 @@ export class VehiculeService {
         );
     }
    
+  }
+
+  ajouterVehicule(vehicule:Vehicule):Observable<Vehicule>  {
+    const httpOptions = {
+          headers: new HttpHeaders({
+            "Content-Type": "application/json"
+          })
+        };
+    // TODO Aimer ou Détester un collègue côté serveur
+    return this._http.post(URL_BACKEND + "vehicules/ajouter", 
+    {
+
+    "immatriculation" : vehicule.immatriculation,
+    "marque" : vehicule.marque,
+    "modele" : vehicule.modele,
+    "categorie" : vehicule.categorie,
+    "nbPlaces": vehicule.nbPlaces,
+    "urlPhoto": vehicule.urlPhoto
+
+
+
+
+
+    },
+    httpOptions)
+    
+    .do((data : any) =>{
+      
+      return data;
+      
+    })
+
   }
 }
