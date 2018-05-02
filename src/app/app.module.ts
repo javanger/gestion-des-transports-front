@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from "@angular/common/http";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from "@angular/common";
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AgmCoreModule } from '@agm/core';
@@ -38,6 +40,7 @@ const appRoutes: Routes = [
     MDBBootstrapModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
+    CommonModule,
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyAYzXigARjswquPe9Jz4bz1M50GKf2DMoI",
       libraries: ["places"]
