@@ -7,11 +7,14 @@ import { AppComponent } from './app.component';
 import { ConnexionComponent } from './shared/connexion/connexion.component';
 import { DeconnexionComponent } from './shared/deconnexion/deconnexion.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ConnexionService } from './services/connexion.service';
+import { DetaisVehiculeComponent } from './shared/detais-vehicule/detais-vehicule.component';
 
 const appRoutes: Routes = [
   { path: 'collaborateur/reservations/', component: MenuComponent }, // Réservation
   { path: 'collaborateur/annonces/', component: MenuComponent }, // Annonce
   { path: 'collaborateur/statistiques', component: MenuComponent }, // Statistique
+ // { path: '',   redirectTo: '/menu', pathMatch: 'full' } // par defaut
 ];
 
 @NgModule({
@@ -19,7 +22,8 @@ const appRoutes: Routes = [
     AppComponent,
     ConnexionComponent,
     MenuComponent,
-    DeconnexionComponent
+    DeconnexionComponent,
+    DetaisVehiculeComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ConnexionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
