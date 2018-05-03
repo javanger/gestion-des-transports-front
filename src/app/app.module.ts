@@ -51,7 +51,7 @@ const appRoutes: Routes = [
     })
   ],
   providers: [
-    VehiculeServicev,
+    VehiculeService,
     ReservationService
   ],
   bootstrap: [AppComponent]
