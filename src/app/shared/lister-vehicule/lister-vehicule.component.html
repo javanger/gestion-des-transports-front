@@ -1,0 +1,110 @@
+<div class="container-fluid">
+    <!-- <label for="searchText">Filtrer par pseudo : </label> -->
+    <!-- <input [(ngModel)]="searchText" placeholder="search password" id="searchText"> -->
+    <h1>Véhicules</h1>
+    <div class="row">
+        <div class="d-flex flex-column">
+            <p>Filtres</p>
+            <label for="searchImmatriculation">Immatriculation: </label>
+            <input placeholder="search immatriculation" id="searchImmatriculation">
+
+            <label for="searchMarque">Marque: </label>
+            <input placeholder="search marque" id="searchMarque">
+
+        </div>
+    </div>
+
+    <div class="row d-flex flex-row-reverse">
+
+
+
+        <button type="button" class="btn btn-red waves-light" mdbWavesEffect (click)="form.show()">Ajouter un véhicule</button>
+
+    </div>
+    <div class="row">
+
+        <div class="col-4" *ngFor="let col of vehicules">
+            <vehicule [vehicule]="col"></vehicule>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal d'ajout d'un vehicule -->
+<!--Modal: Contact form-->
+
+<div mdbModal #form="mdb-modal" class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog cascading-modal" role="document">
+        <!--Content-->
+        <div class="modal-content">
+
+            <!--Header-->
+            <div class="modal-header red darken-3 white-text">
+                {{ajoutVehicule | json}}
+                <h4 class="title">
+                    <i class="fa fa-pencil"></i> Vehicule</h4>
+                <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="form.hide()">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <!--Body-->
+            <form (ngSubmit)="submit()" #monForm="ngForm">
+                <div class="modal-body mb-0">
+                    <div class="md-form form-sm">
+
+                        <input [(ngModel)]="ajoutVehicule.immatriculation" mdbInputDirective type="text" id="immatriculation"  #immatriculation="ngModel" name="immatriculation"
+                            class="form-control" required pattern="^[A-Z]{2}[-][0-9]{4}[-][A-Z]{2}$">
+                        <label for="immatriculation">Immatriculation</label>
+                    </div>
+
+                    <div class="md-form form-sm">
+
+                        <input [(ngModel)]="ajoutVehicule.marque" mdbInputDirective type="text" id="marque" name="marque"  #marque="ngModel" class="form-control" required>
+                        <label for="marque">Marque</label>
+                    </div>
+
+                    <div class="md-form form-sm">
+
+                        <input [(ngModel)]="ajoutVehicule.modele" mdbInputDirective type="text" id="modele" name="modele"  #modele="ngModel" class="form-control" required>
+                        <label for="modele">Modèle</label>
+                    </div>
+
+                    <div class="md-form form-sm">
+
+
+                        <select [(ngModel)]="ajoutVehicule.categorie" name="categorie"  #categorie="ngModel" class="browser-default" required>
+                            <option value="" disabled selected>Catégorie</option>
+                            <option *ngFor="let items  of optionSelect" value="{{items.value}}">{{items.label}}</option>
+
+                        </select>
+
+
+                    </div>
+                    <div class="md-form form-sm">
+
+                            <input [(ngModel)]="ajoutVehicule.nbPlaces" mdbInputDirective type="number" id="nbPlaces" name="nbPlaces"  #nbPlaces="ngModel" class="form-control" required>
+                            <label for="nbPlaces">Nombres de places</label>
+                        </div>
+
+
+                        <div class="md-form form-sm">
+
+                                <input [(ngModel)]="ajoutVehicule.urlPhoto" mdbInputDirective type="text" id="urlPhoto" name="urlPhoto"  #urlPhoto="ngModel" class="form-control" required>
+                                <label for="urlPhoto">Photo</label>
+                            </div>
+
+                    <div class="text-center mt-1-half">
+                        <button class="btn btn-red mb-2 waves-light" mdbWavesEffect>Annuler</button>
+                        <button  type="submit" (click)="form.hide()" class="btn btn-red mb-2 waves-light" [disabled]="!(immatriculation.valid&&marque.valid&&modele.valid&&categorie.valid&&urlPhoto.valid&&nbPlaces.valid)"mdbWavesEffect>Ajouter</button>
+                    </div>
+           
+
+            </div>
+        </form>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+
+<!--Modal: Contact form-->
