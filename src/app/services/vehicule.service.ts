@@ -10,6 +10,9 @@ const URL_BACKEND = environment.apiUrl;
 export class VehiculeService {
   constructor(private _http: HttpClient) {}
 
+  /*
+    En attente des modifications de Victor pour les vehicules de societé
+
   listerVehicules(): Observable<Vehicule[]> {
     { 
       return this._http
@@ -23,5 +26,5 @@ export class VehiculeService {
         );
     }
    
-  }
+  }*/
 }

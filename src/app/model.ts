@@ -1,15 +1,21 @@
-export class Vehicule {
+export abstract class Vehicule {
   immatriculation: string;
   marque: string;
-  modele: number;
-  categorie: CategorieVehicule;
-  nbPlaces: string;
-  urlPhoto: string;
+  modele: string;
+  nbPlaces: number;
 
   constructor(obj: any) {
     Object.assign(this, obj);
   }
 }
+
+export class VehiculePersonnel extends Vehicule {
+
+  constructor(obj: any) {
+    super(obj)
+  }
+}
+
 
 export enum CategorieVehicule{
 

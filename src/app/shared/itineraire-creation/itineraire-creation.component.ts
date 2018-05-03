@@ -62,7 +62,7 @@ export class ItineraireCreationComponent implements OnInit {
     if (status === google.maps.GeocoderStatus.OK && results.length > 0) {
       // set it to the correct, formatted address if it's valid
       this.searchElementRefDep.nativeElement.value = results[0].formatted_address;
-      this.adresseDepValid=true
+      this.adresseDepValid=true      
       this.calcul()
     } 
     else{

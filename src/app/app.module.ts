@@ -12,8 +12,11 @@ import { MenuComponent } from './shared/menu/menu.component';
 import { ListerVehiculeComponent } from './shared/lister-vehicule/lister-vehicule.component';
 import { VehiculeComponent } from './shared/vehicule/vehicule.component';
 import { VehiculeService } from './services/vehicule.service';
+import { VehiculePersonnelService } from './services/vehicule-personnel.service';
 import { CreerAnnonceComponent } from './pages/creer-annonce/creer-annonce.component';
 import { ItineraireCreationComponent } from './shared/itineraire-creation/itineraire-creation.component';
+import { VehiculeCovoiturageCreationComponent } from './shared/vehicule-covoiturage-creation/vehicule-covoiturage-creation.component';
+import { HoraireCovoiturageCreationComponent } from './shared/horaire-covoiturage-creation/horaire-covoiturage-creation.component';
 
 const appRoutes: Routes = [
   { path: 'collaborateur/reservations/', component: MenuComponent }, // Réservation
@@ -29,7 +32,9 @@ const appRoutes: Routes = [
     CreerAnnonceComponent,
     ItineraireCreationComponent,
     ListerVehiculeComponent,
-    VehiculeComponent
+    VehiculeComponent,
+    VehiculeCovoiturageCreationComponent,
+    HoraireCovoiturageCreationComponent
   ],
   imports: [
     BrowserModule,    
@@ -43,7 +48,7 @@ const appRoutes: Routes = [
       libraries: ["places"]
     })
   ],
-  providers: [VehiculeService],
+  providers: [VehiculeService,VehiculePersonnelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

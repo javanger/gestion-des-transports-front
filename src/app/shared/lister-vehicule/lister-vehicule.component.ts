@@ -12,8 +12,9 @@ export class ListerVehiculeComponent implements OnInit {
   constructor(private sVehicule: VehiculeService) {}
 
   ngOnInit() {
+    /* En attente modification par Victor
     this.sVehicule.listerVehicules().subscribe((data: any) => {
       this.vehicules = data;
-    });
+    });*/
   }
 }

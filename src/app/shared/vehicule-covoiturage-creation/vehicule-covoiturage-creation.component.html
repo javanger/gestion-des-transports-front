@@ -1,0 +1,45 @@
+<div class ="container-fluid">
+  <div class="row border border-dark">
+    <div class="col-11">
+      Véhicule
+    </div>
+  </div>
+  <div class="row border border-dark mt-1">
+    <div class="col-8 offset-1">
+      <form>
+        <div class="row mt-2">
+          <div class="col-3 text-right">
+            <label class="" for="immatriculation">Immatriculation *</label>
+          </div>
+          <div class="col-4">
+            <input type="text" [(ngModel)]="vehicule.immatriculation" name="immatriculation" id="immatriculation" required class="form-control form-control-sm" #immatriculation="ngModel">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-3 text-right">
+              <label class="mt-2" for="marque">Marque *</label>
+          </div>
+          <div class="col-4">
+              <input type="text" [(ngModel)]="vehicule.marque" name="marque" id="marque" required class="form-control form-control-sm" #marque="ngModel">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-3 text-right">
+              <label class="mt-2" for="modele">Modèle *</label>
+          </div>
+          <div class="col-4">
+              <input type="text" [(ngModel)]="vehicule.modele" name="modele" id="modele" required class="form-control form-control-sm" #modele="ngModel">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-3 text-right">
+              <label class="mt-2" for="nbPlaces">Nombre de places disponibles *</label>
+          </div>
+          <div class="col-1">
+              <input type="text" [(ngModel)]="vehicule.nbPlaces" name="nbPlaces" id="nbPlaces" required class="form-control form-control-sm" #nbPlaces="ngModel">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

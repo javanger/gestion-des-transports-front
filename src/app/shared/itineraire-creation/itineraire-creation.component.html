@@ -1,21 +1,46 @@
 <div class ="container-fluid">
   <div class="row border border-dark">
     <div class="col-11">
-      Itinéraires
+      Itinéraire
     </div>
   </div>
   <div class="row border border-dark mt-1">
-    <div class="col-8 offset-2">
+    <div class="col-8 offset-1">
       <form>
-          <label class="mt-2" for="inputAdresseDepart">Adresse de départ*</label>
-          <input (change)="calcul()" autocorrect="off" autocapitalize="off" spellcheck="off" 
-            type="text" name="inputAdresseDepart" id="inputAdresseDepart" required class="form-control" #searchDepart [formControl]="searchControl">
-        
-          <label class="mt-2" for="inputAdresseArrive">Adresse d'arrivé*</label>
-          <input (change)="verif()" autocorrect="off" autocapitalize="off" spellcheck="off" 
-           type="text" name="inputAdresseArrive" id="inputAdresseArrive" required class="form-control" #searchArrive [formControl]="searchControl">
-        <p class ="mt-2">Durée du trajet : {{duree}}</p>
-        <p>Distance : {{distance}}</p>
+        <div class="row mt-2">
+          <div class="col-3 text-right">
+              <label class="mt-2" for="inputAdresseDepart">Adresse de départ *</label>
+          </div>
+          <div class="col-5">
+              <input (change)="calcul()" autocorrect="off" autocapitalize="off" spellcheck="off" 
+              type="text" name="inputAdresseDepart" id="inputAdresseDepart" required class="form-control" #searchDepart [formControl]="searchControl">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-3 text-right">
+              <label class="mt-2" for="inputAdresseArrive">Adresse d'arrivé *</label>
+          </div>
+          <div class="col-5">
+              <input (change)="verif()" autocorrect="off" autocapitalize="off" spellcheck="off" 
+          type="text" name="inputAdresseArrive" id="inputAdresseArrive" required class="form-control" #searchArrive [formControl]="searchControl">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-3 text-right">
+              <p>Durée du trajet : </p>
+          </div>
+          <div class="col-5">
+              <p>{{duree}}</p>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-3 text-right">
+              <p>Distance : </p>
+          </div>
+          <div class="col-5">
+              <p>{{distance}}</p>
+          </div>
+        </div>
       </form>
     </div>
   </div>
