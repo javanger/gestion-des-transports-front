@@ -14,6 +14,7 @@ import { ReservationCovoiturageService } from './services/reservation/reservatio
 import { ListerVehiculeComponent } from './shared/lister-vehicule/lister-vehicule.component';
 import { VehiculeComponent } from './shared/vehicule/vehicule.component';
 import { VehiculeService } from './services/vehicule.service';
+
 import { CreerAnnonceComponent } from './pages/creer-annonce/creer-annonce.component';
 import { ItineraireCreationComponent } from './shared/itineraire-creation/itineraire-creation.component';
 
@@ -42,11 +43,15 @@ const appRoutes: Routes = [
     MDBBootstrapModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
+    FormsModule,
     CommonModule,
+    ReactiveFormsModule,
+    
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyAYzXigARjswquPe9Jz4bz1M50GKf2DMoI",
       libraries: ["places"]
     })
+
   ],
   providers: [
     VehiculeService,
