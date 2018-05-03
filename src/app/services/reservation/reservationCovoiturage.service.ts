@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 
 const URL_BACKEND = environment.apiUrl;
 @Injectable()
-export class ReservationService {
+export class ReservationCovoiturageService {
 
   constructor(private _http: HttpClient) { }
 

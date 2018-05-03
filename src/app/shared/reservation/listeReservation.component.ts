@@ -1,13 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ReservationService } from '../../services/reservation/reservation.service';
+import { ReservationCovoiturageService } from '../../services/reservation/reservationCovoiturage.service';
 import { Reservation, Status } from '../../../model';
 
 @Component({
-  selector: 'reservation',
+  selector: 'listeReservation',
   templateUrl: './reservation.component.html',
   styleUrls: ['./reservation.component.scss']
 })
-export class ReservationComponent implements OnInit {
+export class ListeReservationComponent implements OnInit {
   
   reservations : Array<Reservation>;
   @Input() listeHistorique:Array<Reservation> = null
@@ -15,7 +15,7 @@ export class ReservationComponent implements OnInit {
   @Input() detailReservation:Reservation = null
   
 
-  constructor(private serviceReservation:ReservationService) {
+  constructor(private serviceReservation:ReservationCovoiturageService) {
     //Changer listerReservation() par listeReservationCollaborateur() quand connexion implanté
     this.serviceReservation.listerReservation().subscribe((data:any) => {
             this.reservations = data            

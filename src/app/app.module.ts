@@ -4,12 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './shared/menu/menu.component';
-import { ReservationComponent } from './shared/reservation/reservation.component';
-import { ReservationService } from './services/reservation/reservation.service';
+import { ListeReservationComponent } from './shared/reservation/listeReservation.component';
+import { ReservationCovoiturageService } from './services/reservation/reservationCovoiturage.service';
 import { HttpClientModule } from "@angular/common/http";
 
 const appRoutes: Routes = [
-  { path: 'collaborateur/reservations/', component: ReservationComponent }, // Réservation
+  { path: 'collaborateur/reservations/', component: ListeReservationComponent }, // Réservation
   { path: 'collaborateur/annonces/', component: MenuComponent }, // Annonce
   { path: 'collaborateur/statistiques', component: MenuComponent }, // Statistique
 ];
@@ -18,7 +18,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     MenuComponent,
-    ReservationComponent
+    ListeReservationComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +26,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],
-  providers: [ReservationService],
+  providers: [ReservationCovoiturageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
