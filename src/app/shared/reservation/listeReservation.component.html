@@ -1,0 +1,95 @@
+<h1 class="red-text pl-3">Vos réservations</h1>
+<div>
+  <button type="button" class="btn btn-red waves-light justify-content-end" mdbWavesEffect>Réserver un transport</button>
+</div>
+<!--Panel-->
+<div class="card text-center m-2 ">
+  <div class="card-header red lighten-1 text-center white-text">
+      Covoiturage
+  </div>
+  <div class="card-body">
+    <div>
+      <h3>Réservation en cours</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Date/Heure</th> 
+            <th>Départ</th>
+            <th>Destination</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let reserv of listeEnCours">
+          <tr class="table-active">
+            <td>{{reserv?.annonce.date}}</td>
+            <td>{{reserv?.annonce.adresseDepart}}</td>
+            <td>{{reserv?.annonce.adresseArrive}}</td>
+            <td><button type="button" class="btn btn-red waves-light" mdbWavesEffect (click)="style.show(); details(reserv?.id);">Détails</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+    <h3>Historique</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Date/Heure</th>
+            <th>Départ</th>
+            <th>Destination</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let reservHist of listeHistorique">
+          <tr class="table-danger">
+            <td>{{reservHist?.annonce.date}}</td>
+            <td>{{reservHist?.annonce.adresseDepart}}</td>
+            <td>{{reservHist?.annonce.adresseArrive}}</td>
+            <td><button type="button" class="btn btn-red waves-light" mdbWavesEffect (click)="style.show(); details(reservHist?.id);">Détails</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <nav>
+        <ul class="pagination pg-red">
+          <!--Numbers-->
+          <li class="page-item active"><a class="page-link" mdbWavesEffect>1</a></li>
+          <li class="page-item"><a class="page-link" mdbWavesEffect>2</a></li>
+          <li class="page-item"><a class="page-link" mdbWavesEffect>3</a></li>
+          <li class="page-item"><a class="page-link" mdbWavesEffect>4</a></li>
+          <li class="page-item"><a class="page-link" mdbWavesEffect>5</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+<!--/.Panel-->
+
+<!--Modal-->
+<div mdbModal #style="mdb-modal" class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-danger" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="heading lead">Détails</p>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="style.hide()">
+          <span aria-hidden="true" class="white-text">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center">
+          <i class="fa fa-file-text-o fa-4x mb-5 animated rotateIn"></i>
+          <p>Départ : {{detailReservation?.annonce.adresseDepart}}</p>
+          <p>Destination : {{detailReservation?.annonce.adresseArrive}}</p>
+          <p>Date/Heure : {{detailReservation?.annonce.date}}</p>
+          <p>Véhivule : {{detailReservation?.annonce.vehicule.marque}} {{detailReservation?.annonce.vehicule.modele}}</p>
+          <p>Chauffeur : {{detailReservation?.annonce.auteurAnnonce.prenom}} {{detailReservation?.annonce.auteurAnnonce.nom}}</p>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <a type="button" class="btn btn-red" data-dismiss="modal" (click)="style.hide()" mdbWavesEffect>Fermer</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/.Modal-->
+
+                            
