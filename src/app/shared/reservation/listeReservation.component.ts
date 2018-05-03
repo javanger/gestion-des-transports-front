@@ -4,8 +4,8 @@ import { Reservation, Status } from '../../../model';
 
 @Component({
   selector: 'listeReservation',
-  templateUrl: './reservation.component.html',
-  styleUrls: ['./reservation.component.scss']
+  templateUrl: './listeReservation.component.html',
+  styleUrls: ['./listeReservation.component.scss']
 })
 export class ListeReservationComponent implements OnInit {
   
