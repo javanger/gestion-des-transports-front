@@ -10,6 +10,7 @@ import { VehiculeService } from './services/vehicule.service';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from "@angular/common";
+import { ReactiveFormsModule } from '@angular/forms';
 const appRoutes: Routes = [
   { path: 'collaborateur/reservations/', component: MenuComponent }, // Réservation
   { path: 'collaborateur/annonces/', component: MenuComponent }, // Annonce
@@ -30,7 +31,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
+
 
   ],
   providers: [VehiculeService],

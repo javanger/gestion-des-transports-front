@@ -14,7 +14,7 @@ export class VehiculeService {
   listerVehicules(): Observable<Vehicule[]> {
     { 
       return this._http
-        .get(URL_BACKEND + "/vehicules")
+        .get(URL_BACKEND + "vehicules")
 
         .map(
           (data: any) => {

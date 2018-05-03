@@ -1,9 +1,9 @@
 export class Vehicule {
   immatriculation: string;
   marque: string;
-  modele: number;
+  modele: string;
   categorie: CategorieVehicule;
-  nbPlaces: string;
+  nbPlaces: number;
   urlPhoto: string;
 
   constructor(obj: any) {
