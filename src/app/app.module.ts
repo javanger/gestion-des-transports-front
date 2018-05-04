@@ -18,9 +18,11 @@ import { VehiculeService } from './services/vehicule.service';
 import { CreerAnnonceComponent } from './pages/creer-annonce/creer-annonce.component';
 import { ItineraireCreationComponent } from './shared/itineraire-creation/itineraire-creation.component';
 
+import { AnnonceCollaborateurComponent } from './shared/annonce-collaborateur/annonce-collaborateur.component';
+
 const appRoutes: Routes = [
   { path: 'collaborateur/reservations/', component: ListeReservationComponent }, // Réservation
-  { path: 'collaborateur/annonces/', component: MenuComponent }, // Annonce
+  { path: 'collaborateur/annonces/', component: AnnonceCollaborateurComponent}, // Annonce
   { path: 'collaborateur/statistiques', component: MenuComponent }, // Statistique
   { path: 'admin/vehicules', component : ListerVehiculeComponent},
 ];
@@ -33,7 +35,9 @@ const appRoutes: Routes = [
     CreerAnnonceComponent,
     ItineraireCreationComponent,
     ListerVehiculeComponent,
-    VehiculeComponent
+    VehiculeComponent,
+    AnnonceCollaborateurComponent,
+  
 
   ],
   imports: [
