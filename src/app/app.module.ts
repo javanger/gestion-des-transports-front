@@ -66,7 +66,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     ReservationCovoiturageService,
-    AnnonceService
+    AnnonceService,
     VehiculeSocieteService,
     ReservationCovoiturageService,
     VehiculePersonnelService
