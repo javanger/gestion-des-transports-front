@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { Reservation } from '../../../model';
+import { Reservation } from '../../model';
 import { Observable } from "rxjs/Observable";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import 'rxjs/add/operator/map';
@@ -14,7 +14,7 @@ export class ReservationCovoiturageService {
 
   listerReservation(): Observable<Reservation[]> {  
     return this._http
-    .get(URL_BACKEND + "/reservations")
+    .get(URL_BACKEND + "reservations")
     .map(
       (data: any) => {
         return data.map((d: any) => new Reservation(d));
@@ -25,7 +25,7 @@ export class ReservationCovoiturageService {
 
   detailReservation(id:number): Observable<Reservation> {
     return this._http
-    .get(URL_BACKEND + "/detail/reservations/"+id)
+    .get(URL_BACKEND + "detail/reservations/"+id)
     .map(
       (data: any) => {
         return data;
@@ -36,7 +36,7 @@ export class ReservationCovoiturageService {
   
   listeResercationCollaborateur(matricule:string): Observable<Reservation[]> {
     return this._http
-    .get(URL_BACKEND + "/reservations/"+matricule)
+    .get(URL_BACKEND + "reservations/"+matricule)
     .map(
       (data: any) => {
         return data.map((d: any) => new Reservation(d));
