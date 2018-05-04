@@ -1,0 +1,78 @@
+<div>
+  <a class="red-text"href="collaboratuer/reservations"> << Retour à la liste </a>
+  <h1>Réserver un véhicule</h1>
+</div>
+<div class="m-4">
+  <div class="card">
+    <div class="card-header red white-text">
+      <h5 class="mb-0">
+        Covoiturage
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+          <div class="row">
+            <p>Critère</p>
+            <itineraire-creation></itineraire-creation>
+          </div>
+          <div class="row">
+            <p>Covoiturage</p>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th>Date/Heure</th>
+                    <th>Départ</th>
+                    <th>Destination</th>
+                    <th>Véhicule</th>
+                    <th>Chauffeur</th>
+                    <th>Places disponibles</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let annonce of annonces | filterAnnonceAdresse:searchDepart">
+                  <tr>
+                    <td>{{annonce?.date}}</td>
+                    <td>{{annonce?.adresseDepart}}</td>
+                    <td>{{annonce?.adresseArrive}}</td>
+                    <td>{{annonce?.vehicule.marque}} {{annonce?.vehicule.modele}}</td>
+                    <td>{{annonce?.auteurAnnonce.prenom}} {{annonce?.auteurAnnonce.nom}}</td>
+                    <td>{{annonce?.vehicule.nbPlaces}}</td>
+                    <td><button type="button" class="btn btn-red waves-light" mdbWavesEffect (click)="style.show(); details(annonce?.id);">Réserver</button></td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+               
+<!--Modal-->
+<div mdbModal #style="mdb-modal" class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-danger" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="heading lead">Confirmer Reservation</p>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="style.hide()">
+          <span aria-hidden="true" class="white-text">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center">
+          <i class="fa fa-file-text-o fa-4x mb-5 animated rotateIn"></i>
+          <p>Départ : {{detailAnnonce?.adresseDepart}}</p>
+          <p>Destination : {{detailAnnonce?.adresseArrive}}</p>
+          <p>Date/Heure : {{detailAnnonce?.date}}</p>
+          <p>Véhivule : {{detailAnnonce?.vehicule.marque}} {{detailAnnonce?.vehicule.modele}}</p>
+          <p>Chauffeur : {{detailAnnonce?.auteurAnnonce.prenom}} {{detailAnnonce?.auteurAnnonce.nom}}</p>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <a type="button" class="btn btn-red" data-dismiss="modal" (click)="style.hide()" mdbWavesEffect>Fermer</a>
+        <a type="button" class="btn btn-red" data-dismiss="modal" (click)="style.hide(); reservation()" mdbWavesEffect>Confirmer</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/.Modal-->
