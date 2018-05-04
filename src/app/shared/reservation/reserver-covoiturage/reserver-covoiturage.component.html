@@ -1,5 +1,5 @@
 <div>
-  <a class="red-text"href="collaboratuer/reservations"> << Retour à la liste </a>
+  <a class="red-text" routerLink="collaboratuer/reservations" routerLinkActive="active-link"> << Retour à la liste </a>
   <h1>Réserver un véhicule</h1>
 </div>
 <div class="m-4">
@@ -13,8 +13,10 @@
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
           <div class="row">
-            <p>Critère</p>
-            <itineraire-creation></itineraire-creation>
+            <div class="col">            
+              <p>Critère</p>
+              <itineraire-creation></itineraire-creation>
+            </div>
           </div>
           <div class="row">
             <p>Covoiturage</p>

@@ -53,12 +53,13 @@ export class VehiculeSocieteService {
 
   trouverVehicule(immatriculation: string): Observable<VehiculeSociete> {
     return this._http.get(URL_BACKEND + "vehicules/" + immatriculation).map((c: any) => {
-      return new VehiculeSociete({
-        "immatriculation":c.immatriculation,
-        "marque":c.marque,
-        "modele":c.modele,
-        "nbPlaces":c.nbPlaces
-      },
+      return new VehiculeSociete(
+        {
+          "immatriculation":c.immatriculation,
+          "marque":c.marque,
+          "modele":c.modele,
+          "nbPlaces":c.nbPlaces
+        },
       c.categorie,
       c.urlPhoto)
     });
