@@ -15,7 +15,10 @@ import { ListerVehiculeComponent } from './shared/lister-vehicule/lister-vehicul
 import { VehiculeSocieteComponent } from './shared/vehiculeSociete/vehiculeSociete.component';
 import { VehiculeSocieteService } from './services/vehiculeSociete.service';
 import { VehiculePersonnelService } from './services/vehicule-personnel.service';
+import { ReservationVehiculeSocieteService } from './services/reservation-vehicule-societe.service';
 import { CreerAnnonceComponent } from './pages/creer-annonce/creer-annonce.component';
+import { ConnexionService } from './services/connexion.service';
+import { DetaisVehiculeComponent } from './shared/detais-vehicule/detais-vehicule.component';
 import { ItineraireCreationComponent } from './shared/itineraire-creation/itineraire-creation.component';
 import { ReserverCovoiturageComponent } from './shared/reservation/reserver-covoiturage/reserver-covoiturage.component';
 import { AnnonceService } from './services/annonce/annonce.service';
@@ -23,6 +26,8 @@ import { FilterAnnonceAdressePipe } from './pipes/filter-annonce-adresse.pipe';
 import { FilterAnnonceDatePipe } from './pipes/filter-annonce-date.pipe'
 import { VehiculeCovoiturageCreationComponent } from './shared/vehicule-covoiturage-creation/vehicule-covoiturage-creation.component';
 import { HoraireCovoiturageCreationComponent } from './shared/horaire-covoiturage-creation/horaire-covoiturage-creation.component';
+import { ConnexionComponent } from './shared/connexion/connexion.component';
+import { DeconnexionComponent } from './shared/deconnexion/deconnexion.component';
 
 
 const appRoutes: Routes = [
@@ -31,7 +36,9 @@ const appRoutes: Routes = [
   { path: 'collaborateur/annonces/', component: MenuComponent },
   { path: 'collaborateur/annonces/creer', component: CreerAnnonceComponent },
   { path: 'collaborateur/statistiques', component: MenuComponent },
-  { path: 'admin/vehicules', component : ListerVehiculeComponent}
+  { path: 'admin/vehicules', component : ListerVehiculeComponent},
+  { path: 'vehicules/:immatriculation', component: DetaisVehiculeComponent }
+
 ];
 
 @NgModule({
@@ -47,7 +54,10 @@ const appRoutes: Routes = [
     FilterAnnonceDatePipe,
     VehiculeSocieteComponent,
     VehiculeCovoiturageCreationComponent,
-    HoraireCovoiturageCreationComponent
+    HoraireCovoiturageCreationComponent,
+    DeconnexionComponent,
+    DetaisVehiculeComponent,
+    ConnexionComponent
   ],
   imports: [
     BrowserModule,    
@@ -71,7 +81,8 @@ const appRoutes: Routes = [
     AnnonceService,
     VehiculeSocieteService,
     ReservationCovoiturageService,
-    VehiculePersonnelService
+    VehiculePersonnelService,
+    ReservationVehiculeSocieteService
   ],
   bootstrap: [AppComponent]
 })

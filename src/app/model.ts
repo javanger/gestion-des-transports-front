@@ -56,7 +56,39 @@ export class VehiculePersonnel extends Vehicule {
     super(obj)
   }
 }
+export class Employe{
+  matricule :String;
+  nom:String;
+  prenom:String;
+  email:String;
+  motDeDasse:String;
+  urlDhoto:String;
 
+  constructor(obj: any) {
+    Object.assign(this, obj);
+  }
+}
+export class Chauffeur extends Employe{
+permis : String;
+telephone : String;
+  constructor(obj: any) {
+    super(Employe);
+    Object.assign(this, obj);
+  }
+
+
+}
+export class ReservationVehiculeSociete extends Reservation{
+dateDebut : Date;
+dateFin : Date;
+chauffeur : Chauffeur;
+vehiculeSociete : VehiculeSociete;
+  constructor(obj: any) {
+    super(obj);
+    Object.assign(this, obj);
+  }
+
+}
 
 export enum CategorieVehicule{
 
