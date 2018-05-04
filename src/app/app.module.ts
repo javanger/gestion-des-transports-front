@@ -42,7 +42,7 @@ const appRoutes: Routes = [
     ListerVehiculeComponent,
     ReserverCovoiturageComponent,
     FilterAnnonceAdressePipe,
-    FilterAnnonceDatePipe
+    FilterAnnonceDatePipe,
     VehiculeSocieteComponent,
     VehiculeCovoiturageCreationComponent,
     HoraireCovoiturageCreationComponent
