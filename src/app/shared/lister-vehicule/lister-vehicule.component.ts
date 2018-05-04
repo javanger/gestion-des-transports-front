@@ -3,7 +3,7 @@ import { Vehicule, CategorieVehicule } from "../../model";
 import { VehiculeService } from "../../services/vehicule.service";
 
 @Component({
-  selector: "app-lister-vehicule",
+  selector: "lister-vehicule",
   templateUrl: "./lister-vehicule.component.html",
   styleUrls: ["./lister-vehicule.component.scss"]
 })

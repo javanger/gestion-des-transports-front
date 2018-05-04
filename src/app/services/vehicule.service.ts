@@ -22,6 +22,13 @@ export class VehiculeService {
           (error: any) => {}
         );
     }
-   
   }
+
+  trouverVehicule(immatriculation: string): Observable<Vehicule> {
+    return this._http.get(URL_BACKEND + "vehicules/" + immatriculation).map((c: any) => {
+      return new Vehicule(c)
+    });
+  }
+
+
 }

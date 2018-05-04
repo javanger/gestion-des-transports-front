@@ -12,6 +12,7 @@ import { MenuComponent } from './shared/menu/menu.component';
 import { ListerVehiculeComponent } from './shared/lister-vehicule/lister-vehicule.component';
 import { VehiculeComponent } from './shared/vehicule/vehicule.component';
 import { VehiculeService } from './services/vehicule.service';
+import { ReservationVehiculeSocieteService } from './services/reservation-vehicule-societe.service';
 import { CreerAnnonceComponent } from './pages/creer-annonce/creer-annonce.component';
 import { ConnexionService } from './services/connexion.service';
 import { DetaisVehiculeComponent } from './shared/detais-vehicule/detais-vehicule.component';
@@ -23,7 +24,8 @@ const appRoutes: Routes = [
   { path: 'collaborateur/reservations/', component: MenuComponent }, // Réservation
   { path: 'collaborateur/annonces/', component: MenuComponent }, // Annonce
   { path: 'collaborateur/statistiques', component: MenuComponent }, // Statistique
-  { path: 'admin/vehicules', component : ListerVehiculeComponent},
+  { path: 'admin/vehicules', component : ListerVehiculeComponent}, // lister véhicules
+  { path: 'vehicules/:immatriculation', component: DetaisVehiculeComponent }, // détails d'une véhicule
 ];
 
 @NgModule({
@@ -50,7 +52,9 @@ const appRoutes: Routes = [
       libraries: ["places"]
     })
   ],
-  providers: [VehiculeService],
+  providers: [VehiculeService,
+    ReservationVehiculeSocieteService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
