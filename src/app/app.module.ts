@@ -27,6 +27,7 @@ import { FilterAnnonceDatePipe } from './pipes/filter-annonce-date.pipe'
 import { VehiculeCovoiturageCreationComponent } from './shared/vehicule-covoiturage-creation/vehicule-covoiturage-creation.component';
 import { HoraireCovoiturageCreationComponent } from './shared/horaire-covoiturage-creation/horaire-covoiturage-creation.component';
 import { ConnexionComponent } from './shared/connexion/connexion.component';
+import { PageConnexionComponent } from './pages/connexion/pageConnexion.component';
 import { DeconnexionComponent } from './shared/deconnexion/deconnexion.component';
 
 
@@ -54,7 +55,8 @@ const appRoutes: Routes = [
     HoraireCovoiturageCreationComponent,
     DeconnexionComponent,
     DetaisVehiculeComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    PageConnexionComponent
   ],
   imports: [
     BrowserModule,    
