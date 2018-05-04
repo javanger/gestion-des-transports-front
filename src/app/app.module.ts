@@ -32,11 +32,14 @@ import { DeconnexionComponent } from './shared/deconnexion/deconnexion.component
 
 
 const appRoutes: Routes = [
-  { path: 'collaborateur/reservations/', component: ListeReservationComponent }, // Réservation
-  { path: 'collaborateur/annonces/', component: MenuComponent }, // Annonce
-  { path: 'collaborateur/statistiques', component: MenuComponent }, // Statistique
-  { path: 'admin/vehicules', component : ListerVehiculeComponent}, // lister véhicules
-  { path: 'vehicules/:immatriculation', component: DetaisVehiculeComponent }, // détails d'une véhicule
+  { path: 'collaborateur/reservations/', component: ListeReservationComponent },
+  { path: 'collaborateur/reservations/creer', component: ReserverCovoiturageComponent },
+  { path: 'collaborateur/annonces/', component: MenuComponent },
+  { path: 'collaborateur/annonces/creer', component: CreerAnnonceComponent },
+  { path: 'collaborateur/statistiques', component: MenuComponent },
+  { path: 'admin/vehicules', component : ListerVehiculeComponent},
+  { path: 'vehicules/:immatriculation', component: DetaisVehiculeComponent }
+
 ];
 
 @NgModule({
