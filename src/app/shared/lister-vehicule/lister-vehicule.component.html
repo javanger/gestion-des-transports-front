@@ -24,7 +24,7 @@
     <div class="row">
 
         <div class="col-4" *ngFor="let col of vehicules">
-            <vehicule [vehicule]="col"></vehicule>
+            <vehicule-societe [vehiculeSociete]="col"></vehicule-societe>
         </div>
     </div>
 </div>
@@ -49,59 +49,81 @@
                 </button>
             </div>
             <!--Body-->
-            <form (ngSubmit)="submit()" #monForm="ngForm">
+            <form   (ngSubmit)="submit()" #monForm="ngForm">
                 <div class="modal-body mb-0">
                     <div class="md-form form-sm">
+                        <label mdbInputDirective  for="immatriculation">Immatriculation</label>
+                        <input    type="text" class="form-control" id="immatriculation" required  pattern="^[A-Z]{2}[-][0-9]{4}[-][A-Z]{2}$" [(ngModel)]="ajoutVehicule.immatriculation" name="immatriculation" #immatriculation="ngModel" >
+                        
+                        <div *ngIf="immatriculation.invalid" class="alert alert-danger">
+                            Une immatriculation est requise de la forme 
+                        </div>
+                    </div> 
 
-                        <input [(ngModel)]="ajoutVehicule.immatriculation" mdbInputDirective type="text" id="immatriculation"  #immatriculation="ngModel" name="immatriculation"
-                            class="form-control" required pattern="^[A-Z]{2}[-][0-9]{4}[-][A-Z]{2}$">
-                        <label for="immatriculation">Immatriculation</label>
-                    </div>
+                    
+
+                   <div class="md-form form-sm">
+                        <label  mdbInputDirective for="marque">Marque</label>
+                        <input type="text" class="form-control" id="marque" required [(ngModel)]="ajoutVehicule.marque"  name="marque" #marque="ngModel">
+                        <div *ngIf="marque.invalid" class="alert alert-danger" >
+                            Une marque est requise
+                        </div>
+                        
+                    </div> 
 
                     <div class="md-form form-sm">
+                        <label  mdbInputDirective for="modele">Modèle</label>
+                        <input type="text" class="form-control" id="modele"  required [(ngModel)]="ajoutVehicule.modele"  name="modele" #modele="ngModel"   >
+                        <div *ngIf="modele.invalid" class="alert alert-danger">
+                            Une modèle est requis
+                        </div>
+                        
+                    </div>  
 
-                        <input [(ngModel)]="ajoutVehicule.marque" mdbInputDirective type="text" id="marque" name="marque"  #marque="ngModel" class="form-control" required>
-                        <label for="marque">Marque</label>
-                    </div>
-
-                    <div class="md-form form-sm">
-
-                        <input [(ngModel)]="ajoutVehicule.modele" mdbInputDirective type="text" id="modele" name="modele"  #modele="ngModel" class="form-control" required>
-                        <label for="modele">Modèle</label>
-                    </div>
-
-                    <div class="md-form form-sm">
+                     <div class="md-form form-sm">
 
 
-                        <select [(ngModel)]="ajoutVehicule.categorie" name="categorie"  #categorie="ngModel" class="browser-default" required>
+                        <select class=" form-control browser-default"  id="categorie" required [(ngModel)]="ajoutVehicule.categorie" name="categorie" #categorie="ngModel"  >
                             <option value="" disabled selected>Catégorie</option>
                             <option *ngFor="let items  of optionSelect" value="{{items.value}}">{{items.label}}</option>
+                            
 
                         </select>
+                        <div *ngIf="categorie.invalid" class="alert alert-danger"> 
+                           Une catégorie est requise. 
+                         </div> 
 
 
-                    </div>
+                    </div> 
                     <div class="md-form form-sm">
-
-                            <input [(ngModel)]="ajoutVehicule.nbPlaces" mdbInputDirective type="number" id="nbPlaces" name="nbPlaces"  #nbPlaces="ngModel" class="form-control" required>
-                            <label for="nbPlaces">Nombres de places</label>
+                        <label mdbInputDirective  for="nbPlaces">Nombres de places</label>
+                        <input type="number" class="form-control" id="nbPlaces" required [(ngModel)]="ajoutVehicule.nbPlaces"   name="nbPlaces" #nbPlaces="ngModel">
+                        <div *ngIf="nbPlaces.invalid" class="alert alert-danger">
+                            Un nombres de place est requis.
                         </div>
+                        
+                    </div>
 
 
-                        <div class="md-form form-sm">
-
-                                <input [(ngModel)]="ajoutVehicule.urlPhoto" mdbInputDirective type="text" id="urlPhoto" name="urlPhoto"  #urlPhoto="ngModel" class="form-control" required>
-                                <label for="urlPhoto">Photo</label>
+                    <div class="md-form form-sm">
+                        <label mdbInputDirective for="urlPhoto">Photo</label>
+                        <input  type="text" id="urlPhoto"  required pattern="^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$" [(ngModel)]="ajoutVehicule.urlPhoto" name="urlPhoto" #urlPhoto="ngModel"
+                            class="form-control" required>
+                            <div *ngIf="urlPhoto.invalid" class="alert alert-danger">
+                                Une url valide est requise
                             </div>
+                        
+                    </div>
 
                     <div class="text-center mt-1-half">
-                        <button class="btn btn-red mb-2 waves-light" mdbWavesEffect>Annuler</button>
-                        <button  type="submit" (click)="form.hide()" class="btn btn-red mb-2 waves-light" [disabled]="!(immatriculation.valid&&marque.valid&&modele.valid&&categorie.valid&&urlPhoto.valid&&nbPlaces.valid)"mdbWavesEffect>Ajouter</button>
+                        <button  type="button" class="btn btn-red mb-2 waves-light"  (click)="form.hide()" mdbWavesEffect>Annuler</button>
+                        <button type="submit" class="btn btn-red mb-2 waves-light" [disabled]="!(immatriculation.valid&&marque.valid&&modele.valid&&categorie.valid&&urlPhoto.valid&&nbPlaces.valid)"
+                            mdbWavesEffect routerLink="/admin/vehicules">Ajouter</button>
                     </div>
-           
 
-            </div>
-        </form>
+
+                </div>
+            </form>
         </div>
         <!--/.Content-->
     </div>

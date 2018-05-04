@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { environment } from "../../environments/environment";
-import { Vehicule } from "../model";
+import { VehiculeSociete } from "../model";
 import { Observable } from "rxjs/Observable";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import 'rxjs/add/operator/map';
@@ -8,25 +8,30 @@ import 'rxjs/add/operator/do';
 
 const URL_BACKEND = environment.apiUrl;
 @Injectable()
-export class VehiculeService {
+export class VehiculeSocieteService {
   constructor(private _http: HttpClient) {}
 
-  listerVehicules(): Observable<Vehicule[]> {
+  listerVehicules(): Observable<VehiculeSociete[]> {
     { 
       return this._http
-        .get(URL_BACKEND + "/vehicules")
+        .get(URL_BACKEND + "vehicules")
 
         .map(
           (data: any) => {
-            return data.map((v: any) => new Vehicule(v));
+            return data.map((v: any) => new VehiculeSociete(
+              {"immatriculation":v.immatriculation,
+               "marque": v.marque,
+               "modele": v.modele,
+               "nbPlaces": v.nbPlaces}, 
+              v.categorie,
+              v.urlPhoto));
           },
           (error: any) => {}
         );
     }
-   
   }
 
-  ajouterVehicule(vehicule:Vehicule):Observable<Vehicule>  {
+    ajouterVehicule(vehicule:VehiculeSociete):Observable<VehiculeSociete>  {
     const httpOptions = {
           headers: new HttpHeaders({
             "Content-Type": "application/json"
@@ -39,22 +44,10 @@ export class VehiculeService {
     "immatriculation" : vehicule.immatriculation,
     "marque" : vehicule.marque,
     "modele" : vehicule.modele,
-    "categorie" : vehicule.categorie,
     "nbPlaces": vehicule.nbPlaces,
+    "categorie" : vehicule.categorie,
     "urlPhoto": vehicule.urlPhoto
-
-
-
-
-
-    },
-    httpOptions)
-    
-    .do((data : any) =>{
-      
-      return data;
-      
-    })
-
+    },httpOptions)
+    .do((data : any) => data )
   }
 }

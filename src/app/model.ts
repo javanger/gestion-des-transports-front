@@ -27,19 +27,37 @@ id:number
   }
 }
 
-export class Vehicule {
+export abstract class Vehicule {
   immatriculation: string;
   marque: string;
-  modele: number;
-  categorie: CategorieVehicule;
-  nbPlaces: string;
-  urlPhoto: string;
-  
+  modele: string;
+  nbPlaces: number;
+
   constructor(obj: any) {
-      Object.assign(this, obj);
+    Object.assign(this, obj);
   }
 }
-  
+
+export class VehiculeSociete extends Vehicule{
+  categorie: CategorieVehicule;
+  urlPhoto: string;
+
+
+  constructor(obj:any,categorie:CategorieVehicule, urlPhoto:string){
+    super(obj);
+    this.categorie=categorie
+    this.urlPhoto=urlPhoto
+  }
+}
+
+export class VehiculePersonnel extends Vehicule {
+
+  constructor(obj: any) {
+    super(obj)
+  }
+}
+
+
 export enum CategorieVehicule{
 
   MICRO_URBAINE = "Micro-urbaines", 

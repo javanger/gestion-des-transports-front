@@ -1,0 +1,34 @@
+<div class ="container-fluid">
+  <div class="row border border-dark">
+    <div class="col-11">
+      Date et horaire
+    </div>
+  </div>
+  <div class="row border border-dark mt-1">
+    <div class="col-8 offset-1">
+      <form>
+        <div class="row mt-2">
+          <div class="col-3 text-right">
+            <label class="" for="immatriculation">Date/Heure *</label>
+          </div>
+          <div class="col-2">
+            <input  type="date" name="date" id="date" required class="form-control form-control-sm" >
+            
+          </div>
+          <div class="col-2">
+            <i class="fa fa-calendar"></i>
+            <select class="form-control">
+              <option *ngFor="let valeur of heure" [value]="valeur">{{valeur}}</option>
+            </select>            
+          </div>
+          <div class="col-2">
+            <label>h</label>
+            <select class="form-control">
+              <option *ngFor="let valeur of minute" [value]="valeur">{{valeur}}</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
