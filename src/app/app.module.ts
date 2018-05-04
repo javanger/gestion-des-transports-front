@@ -12,11 +12,13 @@ import { MenuComponent } from './shared/menu/menu.component';
 import { ListeReservationComponent } from './shared/reservation/listeReservation.component';
 import { ReservationCovoiturageService } from './services/reservation/reservationCovoiturage.service';
 import { ListerVehiculeComponent } from './shared/lister-vehicule/lister-vehicule.component';
-import { VehiculeComponent } from './shared/vehicule/vehicule.component';
-import { VehiculeService } from './services/vehicule.service';
-
+import { VehiculeSocieteComponent } from './shared/vehiculeSociete/vehiculeSociete.component';
+import { VehiculeSocieteService } from './services/vehiculeSociete.service';
+import { VehiculePersonnelService } from './services/vehicule-personnel.service';
 import { CreerAnnonceComponent } from './pages/creer-annonce/creer-annonce.component';
 import { ItineraireCreationComponent } from './shared/itineraire-creation/itineraire-creation.component';
+import { VehiculeCovoiturageCreationComponent } from './shared/vehicule-covoiturage-creation/vehicule-covoiturage-creation.component';
+import { HoraireCovoiturageCreationComponent } from './shared/horaire-covoiturage-creation/horaire-covoiturage-creation.component';
 
 const appRoutes: Routes = [
   { path: 'collaborateur/reservations/', component: ListeReservationComponent }, // Réservation
@@ -33,8 +35,9 @@ const appRoutes: Routes = [
     CreerAnnonceComponent,
     ItineraireCreationComponent,
     ListerVehiculeComponent,
-    VehiculeComponent
-
+    VehiculeSocieteComponent,
+    VehiculeCovoiturageCreationComponent,
+    HoraireCovoiturageCreationComponent
   ],
   imports: [
     BrowserModule,    
@@ -54,8 +57,9 @@ const appRoutes: Routes = [
 
   ],
   providers: [
-    VehiculeService,
-    ReservationCovoiturageService
+    VehiculeSocieteService,
+    ReservationCovoiturageService,
+    VehiculePersonnelService
   ],
   bootstrap: [AppComponent]
 })

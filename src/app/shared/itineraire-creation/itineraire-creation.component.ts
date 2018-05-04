@@ -1,4 +1,4 @@
-import { ElementRef, NgZone, OnInit, ViewChild, Component, ChangeDetectorRef } from '@angular/core';
+import { ElementRef, NgZone, OnInit, ViewChild, Component, ChangeDetectorRef, Output, EventEmitter } from '@angular/core';
 import { } from 'googlemaps';
 import { FormControl } from '@angular/forms';
 import { MapsAPILoader } from '@agm/core';
@@ -16,6 +16,13 @@ export class ItineraireCreationComponent implements OnInit {
   
   adresseDepValid:boolean = false
   adresseArrValid:boolean = false
+
+  @Output() formEventDuree: EventEmitter<string> = new EventEmitter()
+  @Output() formEventDistance: EventEmitter<string> = new EventEmitter()
+  @Output() formEventDep: EventEmitter<string> = new EventEmitter()
+  @Output() formEventArr: EventEmitter<string> = new EventEmitter()
+
+  /*(formEvent)="impactForm($event)"*/
   
   searchControl: FormControl;
 
@@ -62,7 +69,7 @@ export class ItineraireCreationComponent implements OnInit {
     if (status === google.maps.GeocoderStatus.OK && results.length > 0) {
       // set it to the correct, formatted address if it's valid
       this.searchElementRefDep.nativeElement.value = results[0].formatted_address;
-      this.adresseDepValid=true
+      this.adresseDepValid=true      
       this.calcul()
     } 
     else{
@@ -115,8 +122,13 @@ export class ItineraireCreationComponent implements OnInit {
         for (var j = 0; j < results.length; j++) {
           var element = results[j];
           this.distance=element.distance.text          
-          this.duree= element.duration.text       
+          this.duree= element.duration.text 
           this.ref.detectChanges();
+
+          this.formEventDuree.emit(this.duree)
+          this.formEventDistance.emit(this.distance)
+          this.formEventDep.emit(this.searchElementRefDep.nativeElement.value)
+          this.formEventArr.emit(this.searchElementRefArr.nativeElement.value)
         }
       }
     }
