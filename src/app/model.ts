@@ -9,6 +9,17 @@ export abstract class Vehicule {
   }
 }
 
+export class VehiculeSociete extends Vehicule{
+  categorie: CategorieVehicule;
+  urlPhoto: string;
+
+  constructor(obj:any,categorie:CategorieVehicule, urlPhoto:string){
+    super(obj);
+    this.categorie=categorie
+    this.urlPhoto=urlPhoto
+  }
+}
+
 export class VehiculePersonnel extends Vehicule {
 
   constructor(obj: any) {

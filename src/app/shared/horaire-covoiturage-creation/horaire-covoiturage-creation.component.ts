@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'horaire-covoiturage-creation',
@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HoraireCovoiturageCreationComponent implements OnInit {
 
-  heure : Array<String> = [];
-  minute : Array<String> = [];
+  @Output() heure : Array<String> = [];
+  @Output() minute : Array<String> = [];
 
   constructor() { }
 

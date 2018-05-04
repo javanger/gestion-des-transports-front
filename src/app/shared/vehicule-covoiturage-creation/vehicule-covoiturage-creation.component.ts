@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { VehiculePersonnel } from '../../model';
 import { VehiculePersonnelService } from "../../services/vehicule-personnel.service"
 
@@ -10,6 +10,8 @@ import { VehiculePersonnelService } from "../../services/vehicule-personnel.serv
 export class VehiculeCovoiturageCreationComponent implements OnInit {
 
   vehicule: any ={}
+
+  @Output() formEventVehicule: EventEmitter<any> = new EventEmitter()
 
   constructor(private pVehiculePersonnelService: VehiculePersonnelService) { }
 
