@@ -24,6 +24,10 @@ export class ConnexionComponent implements OnInit {
     this.router.navigate([''])
   }
   redirectChauffeur(){
+    this.router.navigate([''])
 
+  }
+  redirectAdmin(){
+    this.router.navigate([''])
   }
 }
