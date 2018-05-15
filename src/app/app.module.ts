@@ -17,6 +17,7 @@ import { VehiculeService } from './services/vehicule.service';
 
 import { CreerAnnonceComponent } from './pages/creer-annonce/creer-annonce.component';
 import { ItineraireCreationComponent } from './shared/itineraire-creation/itineraire-creation.component';
+import { AnnonceCollaborateurComponent } from './shared/annonce-collaborateur/annonce-collaborateur.component';
 
 const appRoutes: Routes = [
   { path: 'collaborateur/reservations/', component: ListeReservationComponent }, // Réservation
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
     CreerAnnonceComponent,
     ItineraireCreationComponent,
     ListerVehiculeComponent,
-    VehiculeComponent
+    VehiculeComponent,
+    AnnonceCollaborateurComponent
 
   ],
   imports: [
