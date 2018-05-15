@@ -7,38 +7,26 @@
             <p>Filtres</p>
             <label for="searchImmatriculation">Immatriculation: </label>
             <input placeholder="search immatriculation" id="searchImmatriculation">
-
             <label for="searchMarque">Marque: </label>
             <input placeholder="search marque" id="searchMarque">
-
         </div>
     </div>
-
     <div class="row d-flex flex-row-reverse">
-
-
-
-        <button type="button" class="btn btn-red waves-light" mdbWavesEffect (click)="form.show()">Ajouter un véhicule</button>
-
-    </div>
-    <div class="row">
-
+    <button type="button" class="btn btn-red waves-light" mdbWavesEffect (click)="form.show()">Ajouter un vehicule</button>
+  </div>
+  <div class="row">
         <div class="col-4" *ngFor="let col of vehicules">
-            <vehicule [vehicule]="col"></vehicule>
+            <vehicule-societe [vehiculeSociete]="col"></vehicule-societe>
         </div>
     </div>
 </div>
-
-
 <!-- Modal d'ajout d'un vehicule -->
 <!--Modal: Contact form-->
-
 <div mdbModal #form="mdb-modal" class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true">
     <div class="modal-dialog cascading-modal" role="document">
         <!--Content-->
         <div class="modal-content">
-
             <!--Header-->
             <div class="modal-header red darken-3 white-text">
                 {{ajoutVehicule | json}}
@@ -58,75 +46,55 @@
                         <div *ngIf="immatriculation.invalid" class="alert alert-danger">
                             Une immatriculation est requise de la forme 
                         </div>
-                    </div> 
-
-                    
-
+                    </div>                    
                    <div class="md-form form-sm">
                         <label  mdbInputDirective for="marque">Marque</label>
                         <input type="text" class="form-control" id="marque" required [(ngModel)]="ajoutVehicule.marque"  name="marque" #marque="ngModel">
                         <div *ngIf="marque.invalid" class="alert alert-danger" >
                             Une marque est requise
-                        </div>
-                        
+                        </div>                        
                     </div> 
-
                     <div class="md-form form-sm">
                         <label  mdbInputDirective for="modele">Modèle</label>
                         <input type="text" class="form-control" id="modele"  required [(ngModel)]="ajoutVehicule.modele"  name="modele" #modele="ngModel"   >
                         <div *ngIf="modele.invalid" class="alert alert-danger">
                             Une modèle est requis
-                        </div>
-                        
+                        </div>                        
                     </div>  
-
                      <div class="md-form form-sm">
-
-
                         <select class=" form-control browser-default"  id="categorie" required [(ngModel)]="ajoutVehicule.categorie" name="categorie" #categorie="ngModel"  >
                             <option value="" disabled selected>Catégorie</option>
-                            <option *ngFor="let items  of optionSelect" value="{{items.value}}">{{items.label}}</option>
-                            
-
+                            <option *ngFor="let items  of optionSelect" value="{{items.value}}">{{items.label}}</option>                
                         </select>
                         <div *ngIf="categorie.invalid" class="alert alert-danger"> 
                            Une catégorie est requise. 
                          </div> 
-
-
                     </div> 
                     <div class="md-form form-sm">
                         <label mdbInputDirective  for="nbPlaces">Nombres de places</label>
                         <input type="number" class="form-control" id="nbPlaces" required [(ngModel)]="ajoutVehicule.nbPlaces"   name="nbPlaces" #nbPlaces="ngModel">
                         <div *ngIf="nbPlaces.invalid" class="alert alert-danger">
                             Un nombres de place est requis.
-                        </div>
-                        
+                        </div>                        
                     </div>
-
-
                     <div class="md-form form-sm">
                         <label mdbInputDirective for="urlPhoto">Photo</label>
                         <input  type="text" id="urlPhoto"  required pattern="^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$" [(ngModel)]="ajoutVehicule.urlPhoto" name="urlPhoto" #urlPhoto="ngModel"
                             class="form-control" required>
                             <div *ngIf="urlPhoto.invalid" class="alert alert-danger">
                                 Une url valide est requise
-                            </div>
-                        
+                            </div>                        
                     </div>
-
                     <div class="text-center mt-1-half">
                         <button  type="button" class="btn btn-red mb-2 waves-light"  (click)="form.hide()" mdbWavesEffect>Annuler</button>
                         <button type="submit" class="btn btn-red mb-2 waves-light" [disabled]="!(immatriculation.valid&&marque.valid&&modele.valid&&categorie.valid&&urlPhoto.valid&&nbPlaces.valid)"
                             mdbWavesEffect routerLink="/admin/vehicules">Ajouter</button>
                     </div>
-
-
                 </div>
             </form>
         </div>
         <!--/.Content-->
     </div>
 </div>
-
 <!--Modal: Contact form-->
+

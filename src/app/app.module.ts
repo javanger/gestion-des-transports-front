@@ -9,21 +9,34 @@ import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './shared/menu/menu.component';
-import { ListeReservationComponent } from './shared/reservation/listeReservation.component';
+import { ListeReservationComponent } from './shared/reservation/listeReservation/listeReservation.component';
 import { ReservationCovoiturageService } from './services/reservation/reservationCovoiturage.service';
 import { ListerVehiculeComponent } from './shared/lister-vehicule/lister-vehicule.component';
-import { VehiculeComponent } from './shared/vehicule/vehicule.component';
-import { VehiculeService } from './services/vehicule.service';
-
+import { VehiculeSocieteComponent } from './shared/vehiculeSociete/vehiculeSociete.component';
+import { VehiculeSocieteService } from './services/vehiculeSociete.service';
+import { VehiculePersonnelService } from './services/vehicule-personnel.service';
+import { ReservationVehiculeSocieteService } from './services/reservation-vehicule-societe.service';
 import { CreerAnnonceComponent } from './pages/creer-annonce/creer-annonce.component';
+import { ConnexionService } from './services/connexion.service';
+import { DetaisVehiculeComponent } from './shared/detais-vehicule/detais-vehicule.component';
 import { ItineraireCreationComponent } from './shared/itineraire-creation/itineraire-creation.component';
-import { AnnonceCollaborateurComponent } from './shared/annonce-collaborateur/annonce-collaborateur.component';
+import { ReserverCovoiturageComponent } from './shared/reservation/reserver-covoiturage/reserver-covoiturage.component';
+import { AnnonceService } from './services/annonce/annonce.service';
+import { FilterAnnonceAdressePipe } from './pipes/filter-annonce-adresse.pipe';
+import { FilterAnnonceDatePipe } from './pipes/filter-annonce-date.pipe'
+import { VehiculeCovoiturageCreationComponent } from './shared/vehicule-covoiturage-creation/vehicule-covoiturage-creation.component';
+import { HoraireCovoiturageCreationComponent } from './shared/horaire-covoiturage-creation/horaire-covoiturage-creation.component';
+import { ConnexionComponent } from './shared/connexion/connexion.component';
+import { PageConnexionComponent } from './pages/connexion/pageConnexion.component';
+import { DeconnexionComponent } from './shared/deconnexion/deconnexion.component';
+
 
 const appRoutes: Routes = [
   { path: 'collaborateur/reservations/', component: ListeReservationComponent }, // Réservation
   { path: 'collaborateur/annonces/', component: MenuComponent }, // Annonce
   { path: 'collaborateur/statistiques', component: MenuComponent }, // Statistique
-  { path: 'admin/vehicules', component : ListerVehiculeComponent},
+  { path: 'admin/vehicules', component : ListerVehiculeComponent}, // lister véhicules
+  { path: 'vehicules/:immatriculation', component: DetaisVehiculeComponent }, // détails d'une véhicule
 ];
 
 @NgModule({
@@ -34,9 +47,16 @@ const appRoutes: Routes = [
     CreerAnnonceComponent,
     ItineraireCreationComponent,
     ListerVehiculeComponent,
-    VehiculeComponent,
-    AnnonceCollaborateurComponent
-
+    ReserverCovoiturageComponent,
+    FilterAnnonceAdressePipe,
+    FilterAnnonceDatePipe,
+    VehiculeSocieteComponent,
+    VehiculeCovoiturageCreationComponent,
+    HoraireCovoiturageCreationComponent,
+    DeconnexionComponent,
+    DetaisVehiculeComponent,
+    ConnexionComponent,
+    PageConnexionComponent
   ],
   imports: [
     BrowserModule,    
@@ -56,8 +76,12 @@ const appRoutes: Routes = [
 
   ],
   providers: [
-    VehiculeService,
-    ReservationCovoiturageService
+    ReservationCovoiturageService,
+    AnnonceService,
+    VehiculeSocieteService,
+    ReservationCovoiturageService,
+    VehiculePersonnelService,
+    ReservationVehiculeSocieteService
   ],
   bootstrap: [AppComponent]
 })

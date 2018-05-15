@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Annonce } from '../../model';
+
 
 @Component({
   selector: 'app-annonce-collaborateur',
@@ -6,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./annonce-collaborateur.component.scss']
 })
 export class AnnonceCollaborateurComponent implements OnInit {
+  @Input() listeCovoiturageEnCours:Array<Annonce> = null
 
   constructor() { }
 

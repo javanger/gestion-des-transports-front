@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { Vehicule, CategorieVehicule } from "../../model";
-import { VehiculeService } from "../../services/vehicule.service";
+import { VehiculeSociete, CategorieVehicule } from "../../model";
+import { VehiculeSocieteService } from "../../services/vehiculeSociete.service";
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from "@angular/router";
 
@@ -11,14 +11,13 @@ import { Router } from "@angular/router";
   styleUrls: ["./lister-vehicule.component.scss"]
 })
 export class ListerVehiculeComponent implements OnInit {
-  @Input() vehicules: Array<Vehicule>;
+  @Input() vehicules: Array<VehiculeSociete>;
   CategorieVehicule : typeof CategorieVehicule = CategorieVehicule;
   optionSelect: Array<any> = [];
-  ajoutVehicule : Vehicule = new Vehicule(null);
+  
+  ajoutVehicule : VehiculeSociete = new VehiculeSociete(null,null,null);
 
- 
-
-  constructor(private router: Router, private sVehicule: VehiculeService) {
+  constructor(private router: Router, private sVehicule: VehiculeSocieteService) {
     this.sVehicule.listerVehicules().subscribe((data: any) => {
       this.vehicules = data;
     });
@@ -26,30 +25,15 @@ export class ListerVehiculeComponent implements OnInit {
   }
   submit() { 
     this.sVehicule.ajouterVehicule(this.ajoutVehicule).subscribe((data:any) => {
-      
       this.ajoutVehicule = data;
-
      })
-
      window.location.reload(false);
-    
-    
    }
   ngOnInit() {
-   
-    
-// Ajouts des option pour le select des catégories
+    // Ajouts des option pour le select des catégories
 
     for (let item in this.CategorieVehicule) {
       this.optionSelect.push({value: item, label:CategorieVehicule[item]})
-    
-          
-      
-  }
- 
-
-  console.log(this.optionSelect);
-
-
+    }
   }
 }

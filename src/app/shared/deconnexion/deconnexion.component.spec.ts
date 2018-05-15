@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VehiculeComponent } from './vehicule.component';
+import { DeconnexionComponent } from './deconnexion.component';
 
-describe('VehiculeComponent', () => {
-  let component: VehiculeComponent;
-  let fixture: ComponentFixture<VehiculeComponent>;
+describe('DeconnexionComponent', () => {
+  let component: DeconnexionComponent;
+  let fixture: ComponentFixture<DeconnexionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VehiculeComponent ]
+      declarations: [ DeconnexionComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VehiculeComponent);
+    fixture = TestBed.createComponent(DeconnexionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
