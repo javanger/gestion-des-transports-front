@@ -41,3 +41,21 @@ export enum CategorieVehicule{
 	TOUT_TERRAINS = "Tout-terrains", 
 	PICK_UP = "Pick-up"
 }
+
+export class Annonce{
+  id:number
+   adresseDepart:string
+   adresseArrive:string
+   duree:string
+   distance:number
+   vehicule:Vehicule
+   nombrePlace:number
+   date:Date
+   auteurAnnonce:Collaborateur
+   reservations:Array<Reservation>
+   status:Status
+   
+   constructor(object:any){
+       Object.assign(this, object)
+   }
+  }

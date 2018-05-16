@@ -19,6 +19,7 @@ import { CreerAnnonceComponent } from './pages/creer-annonce/creer-annonce.compo
 import { ItineraireCreationComponent } from './shared/itineraire-creation/itineraire-creation.component';
 import { VehiculeCovoiturageCreationComponent } from './shared/vehicule-covoiturage-creation/vehicule-covoiturage-creation.component';
 import { HoraireCovoiturageCreationComponent } from './shared/horaire-covoiturage-creation/horaire-covoiturage-creation.component';
+import { AnnonceCollaborateurService } from './services/annonce-collaborateur.service'
 
 const appRoutes: Routes = [
   { path: 'collaborateur/reservations/', component: ListeReservationComponent }, // Réservation
@@ -59,7 +60,8 @@ const appRoutes: Routes = [
   providers: [
     VehiculeSocieteService,
     ReservationCovoiturageService,
-    VehiculePersonnelService
+    VehiculePersonnelService,
+    AnnonceCollaborateurService
   ],
   bootstrap: [AppComponent]
 })

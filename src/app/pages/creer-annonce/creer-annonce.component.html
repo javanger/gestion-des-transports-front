@@ -2,16 +2,21 @@
 <div class="row mx-auto"><h1>Publier une annonce</h1></div>
 <div class="row mx-auto">
   <div class="col">
-    <itineraire-creation></itineraire-creation>
+    <itineraire-creation (formInfos)="traiterItineraire($event)" ></itineraire-creation>
   </div>
 </div>
 <div class="row mx-auto mt-2">
   <div class="col">
-    <vehicule-covoiturage-creation></vehicule-covoiturage-creation>
+    <vehicule-covoiturage-creation (formEventVehicule)="traiterVehicule($event)"></vehicule-covoiturage-creation>
   </div>
 </div>
 <div class="row mx-auto mt-2">
   <div class="col">
-    <horaire-covoiturage-creation></horaire-covoiturage-creation>
+    <horaire-covoiturage-creation (formEventHoraire)="traiterHoraire($event)"></horaire-covoiturage-creation>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <button (click)="validerFormulaire()"  type="button">Valider</button>
   </div>
 </div>
