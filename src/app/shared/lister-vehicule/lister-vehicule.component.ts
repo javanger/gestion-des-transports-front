@@ -15,7 +15,7 @@ export class ListerVehiculeComponent implements OnInit {
   CategorieVehicule : typeof CategorieVehicule = CategorieVehicule;
   optionSelect: Array<any> = [];
   
-  ajoutVehicule : VehiculeSociete = new VehiculeSociete(null,null,null);
+  ajoutVehicule : VehiculeSociete = new VehiculeSociete(null,null,null,null);
 
   constructor(private router: Router, private sVehicule: VehiculeSocieteService) {
     this.sVehicule.listerVehicules().subscribe((data: any) => {
