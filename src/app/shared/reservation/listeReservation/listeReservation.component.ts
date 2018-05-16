@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ReservationCovoiturageService } from '../../services/reservation/reservationCovoiturage.service';
+import { ReservationCovoiturageService } from '../../../services/reservation/reservationCovoiturage.service';
 import { Reservation, Status } from '../../../model';
 
 @Component({
@@ -8,7 +8,7 @@ import { Reservation, Status } from '../../../model';
   styleUrls: ['./listeReservation.component.scss']
 })
 export class ListeReservationComponent implements OnInit {
-  
+
   reservations : Array<Reservation>;
   @Input() listeHistorique:Array<Reservation> = null
   @Input() listeEnCours:Array<Reservation> = null
