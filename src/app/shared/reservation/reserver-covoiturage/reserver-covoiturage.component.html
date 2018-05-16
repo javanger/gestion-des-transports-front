@@ -27,7 +27,7 @@
                 <th></th>
               </tr>
             </thead>
-            <tbody *ngFor="let annonce of annonces | filterAnnonceDate:event">
+            <tbody *ngFor="let annonce of annonces">
               <tr>
                 <td>{{annonce?.date}}</td>
                 <td>{{annonce?.adresseDepart}}</td>
