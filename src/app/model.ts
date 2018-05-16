@@ -63,6 +63,7 @@ export class Employe{
   email:String;
   motDeDasse:String;
   urlDhoto:String;
+  role: Role;
 
   constructor(obj: any) {
     Object.assign(this, obj);
@@ -87,6 +88,12 @@ vehiculeSociete : VehiculeSociete;
     super(obj);
     Object.assign(this, obj);
   }
+
+}
+export enum Role{
+  ADMINISTRATEUR = "admin",
+  CHAUFFEUR = "chauffeur",
+  COLLABORATEUR = "collaborateur",
 
 }
 
