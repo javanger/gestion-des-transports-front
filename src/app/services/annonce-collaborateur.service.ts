@@ -59,6 +59,3 @@ export class AnnonceCollaborateurService {
 
 }
 
-
-}
-
