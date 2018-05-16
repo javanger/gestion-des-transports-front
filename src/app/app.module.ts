@@ -32,9 +32,12 @@ import { FilterAnnonceDatePipe } from './pipes/filter-annonce-date.pipe'
 import { CreerAnnonceComponent } from './pages/creer-annonce/creer-annonce.component';
 import { PageConnexionComponent } from './pages/connexion/pageConnexion.component';
 
+import { DeconnexionComponent } from './shared/deconnexion/deconnexion.component';
+import { AnnonceCollaborateurComponent } from './shared/annonce-collaborateur/annonce-collaborateur.component';
+import { AnnonceCollaborateurService } from './services/annonce-collaborateur.service';
 const appRoutes: Routes = [
-  { path: 'collaborateur/reservations/', component: ListeReservationComponent }, // Réservation
-  { path: 'collaborateur/annonces/', component: CreerAnnonceComponent }, // Annonce
+  { path: 'collaborateur/reservations', component: ListeReservationComponent }, // Réservation
+  { path: 'collaborateur/annonces', component: AnnonceCollaborateurComponent }, // Annonce
   { path: 'collaborateur/statistiques', component: MenuComponent }, // Statistique
   { path: 'admin/vehicules', component : ListerVehiculeComponent}, // lister véhicules
   { path: 'vehicules/:immatriculation', component: DetaisVehiculeComponent }, // détails d'une véhicule
@@ -58,7 +61,9 @@ const appRoutes: Routes = [
     DeconnexionComponent,
     DetaisVehiculeComponent,
     ConnexionComponent,
-    PageConnexionComponent
+    PageConnexionComponent,
+    AnnonceCollaborateurComponent
+
   ],
   imports: [
     BrowserModule,    

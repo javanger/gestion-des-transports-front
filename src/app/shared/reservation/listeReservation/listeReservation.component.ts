@@ -33,7 +33,7 @@ export class ListeReservationComponent implements OnInit {
       this.listeHistorique = this.reservations.filter(r => {r.annonce.date < new Date();
                                                             r.status != Status.EN_COURS
       })    
-    }
+    } 
     console.log(this.listeHistorique);
   }
 

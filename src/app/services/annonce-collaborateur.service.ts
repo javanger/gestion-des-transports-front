@@ -7,39 +7,37 @@ const URL_BACKEND = environment.apiUrl;
 
 @Injectable()
 export class AnnonceCollaborateurService {
+  constructor(private _http: HttpClient) { }
 
- constructor(private _http: HttpClient) { }
+  listerAnnonces(matricule:string): Observable<Annonce> {
+    
+    return this._http
+    .get(URL_BACKEND + "annonces/"+matricule)
+    .map(
+      (data: any) => {
+        return data.map((d: any) => new Annonce(d));
+      },
+      (error: any) => { }
+      );
+  }
+  annulerAnnonces(uneAnnonce: Annonce) : Observable<Annonce>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+     };
 
- listerAnnonces(matricule:string): Observable<Annonce> {
-   
-   return this._http
-   .get(URL_BACKEND + "annonces/"+matricule)
-   .map(
-     (data: any) => {
-       return data.map((d: any) => new Annonce(d));
-     },
-     (error: any) => { }
-     );
- }
- annulerAnnonces(uneAnnonce: Annonce) : Observable<Annonce>{
-   const httpOptions = {
-     headers: new HttpHeaders({
-       "Content-Type": "application/json"
-     })
-    };
+     return this._http.patch(URL_BACKEND + "annonces/" + uneAnnonce.id + "/status",uneAnnonce, 
+  
+     httpOptions)
 
-    return this._http.patch<Annonce>(URL_BACKEND + "status/annonces/" + uneAnnonce.id,
-    {
-     "action" : "ANNULER"
-    },
-    httpOptions)
+     .do((data : any) =>{
+       return data;
+     }) 
 
-    .do((data : any) =>{
-      return data;
-    })
- }
-
- ajouterAnnonce(adresseDepart:string, adressArrivee:string, duree:string, distance:string ,vehicule:Vehicule,nbPlaces:number, date:Date):void{    
+  }
+  
+   ajouterAnnonce(adresseDepart:string, adressArrivee:string, duree:string, distance:string ,vehicule:Vehicule,nbPlaces:number, date:Date):void{    
   const httpOptions = {
     headers: new HttpHeaders({
       "Content-Type": "application/json"
@@ -60,3 +58,7 @@ export class AnnonceCollaborateurService {
 
 
 }
+
+
+}
+
