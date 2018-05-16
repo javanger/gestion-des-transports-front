@@ -1,0 +1,67 @@
+<h1 class="red-text pl-3">Vos annonces</h1>
+<div>
+  <button type="button" class="btn btn-red waves-light justify-content-end" mdbWavesEffect>Créer une nouvelle annonce</button>
+</div>
+<!--Panel-->
+<div class="card text-center m-2 ">
+  <div class="card-header red lighten-1 text-center white-text">
+      Annonces
+  </div>
+  <div class="card-body">
+    <div>
+      <h3>Annonce en cours </h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Date/Heure de départ</th> 
+            <th>Lieux de départ</th>
+            <th>Lieux de destination</th>
+            <th>Nombre de voyageurs</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let reserv of listeAnnoncesEnCours">
+          <tr class="table-active">
+            <td>{{reserv?.date}}</td>
+            <td>{{reserv?.adresseDepart}}</td>
+            <td>{{reserv?.adresseArrive}}</td>
+            <td>{{reserv?.reservations.length}}</td>
+            <td><button type="button" (click)="annulerUneAnnonce(reserv)" class="btn btn-red waves-light" mdbWavesEffect >Annuler</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+    <h3>Historique</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Date/Heure de départ</th>
+            <th>Lieux de départ</th>
+            <th>Lieux de déstination</th>
+            <th>Nombre de voyageurs</th>
+          
+          </tr>
+        </thead>
+        <tbody *ngFor="let reservHist of listeAnnoncesHistorique">
+          <tr class="table-danger">
+            <td>{{reservHist?.date}}</td>
+            <td>{{reservHist?.adresseDepart}}</td>
+            <td>{{reservHist?.adresseArrive}}</td>
+            <td>{{reservHist?.reservations.length}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <nav>
+        <ul class="pagination pg-red">
+          <!--Numbers-->
+          <li class="page-item active"><a class="page-link" mdbWavesEffect>1</a></li>
+          <li class="page-item"><a class="page-link" mdbWavesEffect>2</a></li>
+          <li class="page-item"><a class="page-link" mdbWavesEffect>3</a></li>
+          <li class="page-item"><a class="page-link" mdbWavesEffect>4</a></li>
+          <li class="page-item"><a class="page-link" mdbWavesEffect>5</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
