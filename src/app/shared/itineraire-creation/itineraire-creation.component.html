@@ -11,7 +11,7 @@
           <div class="col-3 text-right">
               <label class="mt-2" for="inputAdresseDepart">Adresse de départ *</label>
           </div>
-          <div class="col-5">
+          <div class="col-6">
               <input (change)="calcul()" autocorrect="off" autocapitalize="off" spellcheck="off" 
               type="text" name="inputAdresseDepart" id="inputAdresseDepart" required class="form-control" #searchDepart [formControl]="searchControl">
           </div>
@@ -20,7 +20,7 @@
           <div class="col-3 text-right">
               <label class="mt-2" for="inputAdresseArrive">Adresse d'arrivé *</label>
           </div>
-          <div class="col-5">
+          <div class="col-6">
               <input (change)="verif()" autocorrect="off" autocapitalize="off" spellcheck="off" 
           type="text" name="inputAdresseArrive" id="inputAdresseArrive" required class="form-control" #searchArrive [formControl]="searchControl">
           </div>
