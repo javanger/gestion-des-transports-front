@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient,  HttpHeaders } from '@angular/common/http';
-import { Annonce } from '../model';
+import { Annonce, Vehicule } from '../model';
 import { Observable } from 'rxjs/Observable';
 const URL_BACKEND = environment.apiUrl;
 
 @Injectable()
 export class AnnonceCollaborateurService {
-
   constructor(private _http: HttpClient) { }
 
   listerAnnonces(matricule:string): Observable<Annonce> {
@@ -37,6 +36,29 @@ export class AnnonceCollaborateurService {
      }) 
 
   }
+  
+   ajouterAnnonce(adresseDepart:string, adressArrivee:string, duree:string, distance:string ,vehicule:Vehicule,nbPlaces:number, date:Date):void{    
+  const httpOptions = {
+    headers: new HttpHeaders({
+      "Content-Type": "application/json"
+    })
+  };
+  this._http.post(
+    // url d'accès au service
+    URL_BACKEND + "annonces/creer/",
+    // corps de la réquête
+    {
+      
+      "nbPlaces":nbPlaces
+    },
+    // options de la requête HTTP
+    httpOptions
+    ).subscribe();
+  }
 
 
 }
+
+
+}
+

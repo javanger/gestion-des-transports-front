@@ -11,18 +11,13 @@ import { MapsAPILoader } from '@agm/core';
 })
 export class ItineraireCreationComponent implements OnInit {
 
-  duree:string
-  distance:string
+  duree:string;
+  distance:string;
   
-  adresseDepValid:boolean = false
-  adresseArrValid:boolean = false
+  adresseDepValid:boolean = false;
+  adresseArrValid:boolean = false;
 
-  @Output() formEventDuree: EventEmitter<string> = new EventEmitter()
-  @Output() formEventDistance: EventEmitter<string> = new EventEmitter()
-  @Output() formEventDep: EventEmitter<string> = new EventEmitter()
-  @Output() formEventArr: EventEmitter<string> = new EventEmitter()
-
-  /*(formEvent)="impactForm($event)"*/
+  @Output() formInfos: EventEmitter<string[]> = new EventEmitter();
   
   searchControl: FormControl;
 
@@ -69,13 +64,13 @@ export class ItineraireCreationComponent implements OnInit {
     if (status === google.maps.GeocoderStatus.OK && results.length > 0) {
       // set it to the correct, formatted address if it's valid
       this.searchElementRefDep.nativeElement.value = results[0].formatted_address;
-      this.adresseDepValid=true      
-      this.calcul()
+      this.adresseDepValid=true;     
+      this.calcul();
     } 
     else{
       this.adresseDepValid=false;
-      this.distance=""
-      this.duree=""
+      this.distance="";
+      this.duree="";
     }  
       
   }
@@ -84,13 +79,13 @@ export class ItineraireCreationComponent implements OnInit {
   callbackValidArr(results,status){
     if (status === google.maps.GeocoderStatus.OK && results.length > 0) {
       this.searchElementRefArr.nativeElement.value = results[0].formatted_address;
-      this.adresseArrValid=true
-      this.calcul()
+      this.adresseArrValid=true;
+      this.calcul();
     } 
     else  {
       this.adresseArrValid=false;
-      this.distance=""
-      this.duree=""
+      this.distance="";
+      this.duree="";
     }  
   }
 
@@ -121,14 +116,18 @@ export class ItineraireCreationComponent implements OnInit {
         var results = response.rows[i].elements;
         for (var j = 0; j < results.length; j++) {
           var element = results[j];
-          this.distance=element.distance.text          
-          this.duree= element.duration.text 
+          this.distance=element.distance.text;        
+          this.duree= element.duration.text;
           this.ref.detectChanges();
 
-          this.formEventDuree.emit(this.duree)
-          this.formEventDistance.emit(this.distance)
-          this.formEventDep.emit(this.searchElementRefDep.nativeElement.value)
-          this.formEventArr.emit(this.searchElementRefArr.nativeElement.value)
+          var informations : string[] = [];
+      
+          informations.push(this.searchElementRefDep.nativeElement.value);
+          informations.push(this.searchElementRefArr.nativeElement.value);
+          informations.push(this.duree);
+          informations.push(this.distance);
+
+          this.formInfos.emit(informations);
         }
       }
     }

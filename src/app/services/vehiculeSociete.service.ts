@@ -21,8 +21,8 @@ export class VehiculeSocieteService {
             return data.map((v: any) => new VehiculeSociete(
               {"immatriculation":v.immatriculation,
                "marque": v.marque,
-               "modele": v.modele,
-               "nbPlaces": v.nbPlaces}, 
+               "modele": v.modele},
+              v.nbPlaces, 
               v.categorie,
               v.urlPhoto));
           },
@@ -56,9 +56,9 @@ export class VehiculeSocieteService {
       return new VehiculeSociete({
         "immatriculation":c.immatriculation,
         "marque":c.marque,
-        "modele":c.modele,
-        "nbPlaces":c.nbPlaces
+        "modele":c.modele
       },
+      c.nbPlaces,
       c.categorie,
       c.urlPhoto)
     });

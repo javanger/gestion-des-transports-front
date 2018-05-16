@@ -25,7 +25,6 @@ export class VehiculePersonnelService {
         "immatriculation": vehicule.immatriculation, 
         "marque": vehicule.marque, 
         "modele": vehicule.modele,
-        "nbPlaces":vehicule.nbPlaces
       },
       // options de la requête HTTP
       httpOptions

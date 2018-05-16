@@ -16,6 +16,7 @@ export class VehiculeCovoiturageCreationComponent implements OnInit {
   constructor(private pVehiculePersonnelService: VehiculePersonnelService) { }
 
   ngOnInit() {
+    this.formEventVehicule.emit(this.vehicule);
   }
 
   creerVehicule(){

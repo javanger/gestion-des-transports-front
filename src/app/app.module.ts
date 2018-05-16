@@ -31,8 +31,6 @@ import { PageConnexionComponent } from './pages/connexion/pageConnexion.componen
 import { DeconnexionComponent } from './shared/deconnexion/deconnexion.component';
 import { AnnonceCollaborateurComponent } from './shared/annonce-collaborateur/annonce-collaborateur.component';
 import { AnnonceCollaborateurService } from './services/annonce-collaborateur.service';
-
-
 const appRoutes: Routes = [
   { path: 'collaborateur/reservations', component: ListeReservationComponent }, // Réservation
   { path: 'collaborateur/annonces', component: AnnonceCollaborateurComponent }, // Annonce

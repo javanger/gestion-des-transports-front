@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'horaire-covoiturage-creation',
@@ -7,25 +7,32 @@ import { Component, OnInit, Output } from '@angular/core';
 })
 export class HoraireCovoiturageCreationComponent implements OnInit {
 
-  @Output() heure : Array<String> = [];
-  @Output() minute : Array<String> = [];
+  heureSelect : Array<String> = [];
+  minuteSelect : Array<String> = [];
+
+  horaire:any = {};
+
+  @Output() formEventHoraire: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+    this.formEventHoraire.emit(this.horaire);
     for(var i:number=0;i<24;i++){
       if(i<10)
-        this.heure.push("0"+i)
+        this.heureSelect.push("0"+i)
       else
-        this.heure.push("" + i)
+        this.heureSelect.push("" + i)
     }
 
     for(var i:number=0;i<60;i+=10){
       if(i<10)
-        this.minute.push("0"+i)
+        this.minuteSelect.push("0"+i)
       else
-        this.minute.push("" + i)
+        this.minuteSelect.push("" + i)
     }
+    
+    
 
   }
 
