@@ -7,25 +7,30 @@
   <div class="row border border-dark mt-1">
     <div class="col-8 offset-1">
       <form>
-        <div class="row mt-2">
+        <div class="row mt-2 py-2">
           <div class="col-3 text-right">
             <label class="" for="immatriculation">Date/Heure *</label>
           </div>
-          <div class="col-2">
-            <input  type="date" name="date" id="date" required class="form-control form-control-sm" >
-            
+          <div class="col-2 pr-0">
+            <input  type="date" [(ngModel)]="horaire.date" name="date" id="date" required class="form-control form-control-sm" #date="ngModel">
           </div>
-          <div class="col-2">
-            <i class="fa fa-calendar"></i>
-            <select class="form-control">
-              <option *ngFor="let valeur of heure" [value]="valeur">{{valeur}}</option>
-            </select>            
-          </div>
-          <div class="col-2">
-            <label>h</label>
-            <select class="form-control">
-              <option *ngFor="let valeur of minute" [value]="valeur">{{valeur}}</option>
-            </select>
+          <div class="col pl-1">
+            <div class="row">
+              <div class="col-1">
+                  <i class="fa fa-calendar"></i>
+              </div>
+              <div class="col-3">
+                <select [(ngModel)]="horaire.heure" name="heure" class="form-control" #heure="ngModel">
+                  <option *ngFor="let valeur of heureSelect" [value]="valeur">{{valeur}}</option>
+                </select>            
+              </div>
+              <div class="col-1 px-0">h</div>
+              <div class="col-3 pl-0">
+                <select class="form-control" [(ngModel)]="horaire.minute" name="minute" #minute="ngModel">
+                  <option *ngFor="let valeur of minuteSelect" [value]="valeur">{{valeur}}</option>
+                </select>
+              </div>
+            </div>
           </div>
         </div>
       </form>

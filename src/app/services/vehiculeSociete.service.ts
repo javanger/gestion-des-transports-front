@@ -21,8 +21,8 @@ export class VehiculeSocieteService {
             return data.map((v: any) => new VehiculeSociete(
               {"immatriculation":v.immatriculation,
                "marque": v.marque,
-               "modele": v.modele,
-               "nbPlaces": v.nbPlaces}, 
+               "modele": v.modele},
+              v.nbPlaces, 
               v.categorie,
               v.urlPhoto));
           },
@@ -49,5 +49,18 @@ export class VehiculeSocieteService {
     "urlPhoto": vehicule.urlPhoto
     },httpOptions)
     .do((data : any) => data )
+  }
+
+  trouverVehicule(immatriculation: string): Observable<VehiculeSociete> {
+    return this._http.get(URL_BACKEND + "vehicules/" + immatriculation).map((c: any) => {
+      return new VehiculeSociete({
+        "immatriculation":c.immatriculation,
+        "marque":c.marque,
+        "modele":c.modele
+      },
+      c.nbPlaces,
+      c.categorie,
+      c.urlPhoto)
+    });
   }
 }

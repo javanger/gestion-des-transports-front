@@ -10,7 +10,7 @@ export class Reservation{
 }
 
 export class Annonce{
-id:number
+  id:number
   adresseDepart:string
   adresseArrive:string
   duree:string
@@ -31,7 +31,6 @@ export abstract class Vehicule {
   immatriculation: string;
   marque: string;
   modele: string;
-  nbPlaces: number;
 
   constructor(obj: any) {
     Object.assign(this, obj);
@@ -41,12 +40,14 @@ export abstract class Vehicule {
 export class VehiculeSociete extends Vehicule{
   categorie: CategorieVehicule;
   urlPhoto: string;
+  nbPlaces: number;
 
 
-  constructor(obj:any,categorie:CategorieVehicule, urlPhoto:string){
+  constructor(obj:any,categorie:CategorieVehicule, urlPhoto:string, nbPlaces:number){
     super(obj);
     this.categorie=categorie
     this.urlPhoto=urlPhoto
+    this.nbPlaces =nbPlaces
   }
 }
 
@@ -56,7 +57,39 @@ export class VehiculePersonnel extends Vehicule {
     super(obj)
   }
 }
+export class Employe{
+  matricule :String;
+  nom:String;
+  prenom:String;
+  email:String;
+  motDeDasse:String;
+  urlDhoto:String;
 
+  constructor(obj: any) {
+    Object.assign(this, obj);
+  }
+}
+export class Chauffeur extends Employe{
+permis : String;
+telephone : String;
+  constructor(obj: any) {
+    super(Employe);
+    Object.assign(this, obj);
+  }
+
+
+}
+export class ReservationVehiculeSociete extends Reservation{
+dateDebut : Date;
+dateFin : Date;
+chauffeur : Chauffeur;
+vehiculeSociete : VehiculeSociete;
+  constructor(obj: any) {
+    super(obj);
+    Object.assign(this, obj);
+  }
+
+}
 
 export enum CategorieVehicule{
 
@@ -71,6 +104,7 @@ export enum CategorieVehicule{
   TOUT_TERRAINS = "Tout-terrains", 
   PICK_UP = "Pick-up"
 }
+
 
 export class Collaborateur {
   matricule:string

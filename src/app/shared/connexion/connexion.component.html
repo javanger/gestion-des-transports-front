@@ -1,0 +1,71 @@
+<form #monForm="ngForm">
+  <div class="row justify-content-center">
+
+    <div class=" mt-3">
+      <i id="icon" class="fa fa-car" style="text-shadow: rgb(130, 130, 130) 0px 0px 0px, rgb(136, 136, 136) 1px 1px 0px, rgb(143, 143, 143) 2px 2px 0px, rgb(149, 149, 149) 3px 3px 0px, rgb(155, 155, 155) 4px 4px 0px, rgb(161, 161, 161) 5px 5px 0px, rgb(167, 167, 167) 6px 6px 0px, rgb(174, 174, 174) 7px 7px 0px, rgb(180, 180, 180) 8px 8px 0px; font-size: 118px; color: rgb(224, 16, 30); height: 201px; width: 201px; line-height: 201px; border-radius: 32%; text-align: center; background-color: rgb(186, 186, 186);"></i>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="card-body">
+      <div class="text-center">
+        <h1> GDT</h1>
+        <h4>
+          <strong>G</strong>estion
+          <strong>D</strong>u
+          <strong>T</strong>ransport </h4>
+        <br/>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-5">
+      <div class="text-center">
+        <i class="fa fa-envelope fa-2x prefix grey-text"></i>
+        <input type="text" [(ngModel)]="monModel.email" name="inputEmail" #email="ngModel" class="form-control" placeholder="Email"
+          required>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-5 mt-2">
+      <div class="text-center">
+        <i class="fa fa-lock fa-2x prefix grey-text" item-width="450"></i>
+        <input type="password" [(ngModel)]="monModel.password" name="inputPassword" #password="ngModel" class="form-control" placeholder="Mot de Passe"
+          required>
+      </div>
+      
+
+      <div class="row pull-right mt-5">
+        <button type="submit" class="btn btn-primary waves-light" (click)="style.show()" [disabled]="!monForm.form.valid">Se connecter</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div mdbModal #style="mdb-modal" class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog  modal-notify modal-info modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <p class="heading lead">Votre profil </p>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="style.hide()">
+            <span aria-hidden="true" class="white-text">×</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="text-center">
+            <i class="fa fa-check fa-4x mb-3 animated rotateIn"></i>
+          </div>
+          <div class="p-1 m-1">
+            <button type="button" class="btn btn-sm btn-primary waves-light " routerLink="/collaborateur" mdbRippleRadius>Collaborateur</button>
+            <button type="button" class="btn btn-sm btn-primary waves-light " routerLink="/chauffeur" mdbRippleRadius>Chauffeur</button>
+            <button type="button" class="btn btn-sm btn-primary waves-light " routerLink="/admin" mdbRippleRadius>Administrateur</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
