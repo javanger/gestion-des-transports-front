@@ -41,6 +41,7 @@ const appRoutes: Routes = [
   { path: 'collaborateur/statistiques', component: MenuComponent }, // Statistique
   { path: 'admin/vehicules', component : ListerVehiculeComponent}, // lister véhicules
   { path: 'vehicules/:immatriculation', component: DetaisVehiculeComponent }, // détails d'une véhicule
+ // { path: 'connexion', component: PageConnexionComponent } // connexion
 ];
 
 @NgModule({

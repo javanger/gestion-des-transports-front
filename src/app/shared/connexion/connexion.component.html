@@ -60,9 +60,9 @@
             <i class="fa fa-check fa-4x mb-3 animated rotateIn"></i>
           </div>
           <div class="p-1 m-1">
-            <button type="button" class="btn btn-sm btn-primary waves-light " routerLink="/collaborateur" mdbRippleRadius>Collaborateur</button>
-            <button type="button" class="btn btn-sm btn-primary waves-light " routerLink="/chauffeur" mdbRippleRadius>Chauffeur</button>
-            <button type="button" class="btn btn-sm btn-primary waves-light " routerLink="/admin" mdbRippleRadius>Administrateur</button>
+            <button (click)="redirectCollab()" type="button" class="btn btn-sm btn-primary waves-light " routerLinkActive="active-link" routerLink="collaborateur/" mdbRippleRadius>Collaborateur</button>
+            <button (click)="redirectChauffeur()" type="button" class="btn btn-sm btn-primary waves-light " routerLinkActive="active-link" routerLink="chauffeur/" mdbRippleRadius>Chauffeur</button>
+            <button (click)="redirectAdmin()" type="button" class="btn btn-sm btn-primary waves-light " routerLinkActive="active-link" routerLink="admin/" mdbRippleRadius>Administrateur</button>
           </div>
         </div>
       </div>

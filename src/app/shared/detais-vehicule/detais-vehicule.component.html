@@ -11,8 +11,8 @@
 </div>
 
 <div class="row">
-  <div class="col-1 offset-1 mt-5">
-      <img width="300" src= '{{vehicule?.urlPhoto}}'>
+  <div class="col-2 offset-1 mt-5">
+      <img width="300" position="fixed" src= '{{vehicule?.urlPhoto}}'>
    </div>
   <div class="col-2 offset-1 mt-5">
     <p><strong> Marque :  </strong>{{vehicule?.marque}}</p>
@@ -23,7 +23,7 @@
 
 <div class="row">
   <div class="col-12 col-lg-10 offset-1 mt-5">
-    <strong>Prochaines réservations</strong>
+    <strong>Réservations</strong>
     <div class="responsive">
       <table class="table ">
         <tr class="table-active">
@@ -45,7 +45,7 @@
             {{col?.dateRetour}}
           </th>
           <th scope="col">
-            {{col?.collaborateur.nom}} 
+            {{col?.collaborateur.nom}} - {{col?.collaborateur.prenom}}
           </th>
         </tr>
       </table>
@@ -53,13 +53,14 @@
   </div>
 </div>
 
+<!--
 <div class="row">
   <div class="col-12 col-lg-10 offset-1 mt-5">
     <strong>Historique des réservations</strong>
     <div class="responsive">
       <table class="table">
 
-        <tr class="table-active">
+        <tr class="table-danger">
           <th scope="col">
             Date / Heure début
           </th>
@@ -78,10 +79,11 @@
             {{col?.dateRetour}}
           </th>
           <th scope="col">
-           {{col?.collaborateur.nom}}
+           {{col?.collaborateur.nom}} - {{col?.collaborateur.prenom}}
           </th>
         </tr>
       </table>
     </div>
   </div>
 </div>
+-->

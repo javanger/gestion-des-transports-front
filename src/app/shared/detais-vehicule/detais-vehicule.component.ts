@@ -30,16 +30,17 @@ immatriculation:string;
    }
 
   ngOnInit() {
+    
     this.sVehicule.trouverVehicule(this.immatriculation).subscribe((data: any) => {
       this.vehicule = data;
     });
-    this.sReservation.trouverReserationEnCours(this.immatriculation).subscribe((data:any)=>{
-      this.listeEnCours = data;
+    this.sReservation.trouverReservationEnCours(this.immatriculation).subscribe((data:any)=>{
+      this.listeEnCours = data
       console.log(this.listeEnCours);
     })
 
-    this.sReservation.trouverReserationHisto(this.immatriculation).subscribe((data:any)=>{
-      this.listeHistorique = data;
+    this.sReservation.trouverReservationHisto(this.immatriculation).subscribe((data:any)=>{
+      this.listeHistorique = data
       console.log(this.listeHistorique);
      
     })

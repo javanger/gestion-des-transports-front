@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Route } from '@angular/compiler/src/core';
+import { Router } from '@angular/router';
 
 class MonModel { email:string; password:string;}
 @Component({
@@ -11,10 +13,21 @@ export class ConnexionComponent implements OnInit {
 
 
   monModel:MonModel = new MonModel();
-  constructor() { 
+  constructor(private router: Router) { 
  
   }
 
   ngOnInit() {
+  }
+
+  redirectCollab(){
+    this.router.navigate([''])
+  }
+  redirectChauffeur(){
+    this.router.navigate([''])
+
+  }
+  redirectAdmin(){
+    this.router.navigate([''])
   }
 }

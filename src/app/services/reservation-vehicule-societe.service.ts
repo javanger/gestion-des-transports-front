@@ -9,33 +9,44 @@ const URL_BACKEND = environment.apiUrl;
 export class ReservationVehiculeSocieteService {
   constructor(private _http: HttpClient) {}
 
-
-
-  trouverReserationEnCours( immatriculation: string ): Observable<ReservationVehiculeSociete[]> {
+  trouverReservationEnCours(
+    immatriculation: string
+  ): Observable<ReservationVehiculeSociete[]> {
     {
       return this._http
         .get(URL_BACKEND + "reservationsSociete/" + immatriculation)
 
         .map(
           (data: any) => {
-            return data
-              .map((v: any) => new ReservationVehiculeSociete(v))
-              },
-          
+            return data.map(
+              (v: any) => new ReservationVehiculeSociete(v)
+            ); /*.filter(dateRetour => {
+               dateRetour >= new Date('17/05/2018 00:00');
+
+
+            });*/
+          },
           (error: any) => {}
         );
     }
   }
 
-  trouverReserationHisto( immatriculation: string ): Observable<ReservationVehiculeSociete[]> {
+  trouverReservationHisto(
+    immatriculation: string
+  ): Observable<ReservationVehiculeSociete[]> {
     {
       return this._http
         .get(URL_BACKEND + "reservationsSociete/" + immatriculation)
 
         .map(
           (data: any) => {
-            return data
-              .map((v: any) => new ReservationVehiculeSociete(v))
+            return data.map(
+              (v: any) => new ReservationVehiculeSociete(v)
+            ); /*.filter(dateRetour => {
+               dateRetour < new Date('17/05/2018 00:00');
+
+
+            });*/
           },
           (error: any) => {}
         );
