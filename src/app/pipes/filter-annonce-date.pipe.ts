@@ -7,9 +7,13 @@ import { Annonce } from '../model';
 export class FilterAnnonceDatePipe implements PipeTransform {
 
   transform(value: Array<Annonce>, date?: Date): Array<Annonce> {
-    if (!date) {
+    while(!date){
       return value
     }
-    return value.filter(v => {return v.date.toLocaleDateString() == date.toLocaleDateString()})
+    return value.filter(v => {
+      if(v.date.toLocaleDateString() != date.toLocaleDateString()){
+        // en cours
+      }
+    })
   }
 }

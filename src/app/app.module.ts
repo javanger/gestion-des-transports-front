@@ -9,25 +9,29 @@ import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './shared/menu/menu.component';
-import { ListeReservationComponent } from './shared/reservation/listeReservation/listeReservation.component';
-import { ReservationCovoiturageService } from './services/reservation/reservationCovoiturage.service';
 import { ListerVehiculeComponent } from './shared/lister-vehicule/lister-vehicule.component';
 import { VehiculeSocieteComponent } from './shared/vehiculeSociete/vehiculeSociete.component';
-import { VehiculeSocieteService } from './services/vehiculeSociete.service';
-import { VehiculePersonnelService } from './services/vehicule-personnel.service';
-import { ReservationVehiculeSocieteService } from './services/reservation-vehicule-societe.service';
-import { CreerAnnonceComponent } from './pages/creer-annonce/creer-annonce.component';
-import { ConnexionService } from './services/connexion.service';
 import { DetaisVehiculeComponent } from './shared/detais-vehicule/detais-vehicule.component';
 import { ItineraireCreationComponent } from './shared/itineraire-creation/itineraire-creation.component';
-import { ReserverCovoiturageComponent } from './shared/reservation/reserver-covoiturage/reserver-covoiturage.component';
-import { AnnonceService } from './services/annonce/annonce.service';
-import { FilterAnnonceAdressePipe } from './pipes/filter-annonce-adresse.pipe';
-import { FilterAnnonceDatePipe } from './pipes/filter-annonce-date.pipe'
 import { VehiculeCovoiturageCreationComponent } from './shared/vehicule-covoiturage-creation/vehicule-covoiturage-creation.component';
 import { HoraireCovoiturageCreationComponent } from './shared/horaire-covoiturage-creation/horaire-covoiturage-creation.component';
+import { ReserverCovoiturageComponent } from './shared/reservation/reserver-covoiturage/reserver-covoiturage.component';
+import { CritereReservationComponent } from './shared/reservation/critere-reservation/critere-reservation.component';
+import { ListeReservationComponent } from './shared/reservation/listeReservation/listeReservation.component';
+import { DeconnexionComponent } from './shared/deconnexion/deconnexion.component';
 import { ConnexionComponent } from './shared/connexion/connexion.component';
+import { ReservationCovoiturageService } from './services/reservation/reservationCovoiturage.service';
+import { ReservationVehiculeSocieteService } from './services/reservation-vehicule-societe.service';
+import { VehiculeSocieteService } from './services/vehiculeSociete.service';
+import { VehiculePersonnelService } from './services/vehicule-personnel.service';
+import { AnnonceService } from './services/annonce/annonce.service';
+import { AnnonceCollaborateurService } from './services/annonce-collaborateur.service'
+import { ConnexionService } from './services/connexion.service';
+import { FilterAnnonceAdressePipe } from './pipes/filter-annonce-adresse.pipe';
+import { FilterAnnonceDatePipe } from './pipes/filter-annonce-date.pipe'
+import { CreerAnnonceComponent } from './pages/creer-annonce/creer-annonce.component';
 import { PageConnexionComponent } from './pages/connexion/pageConnexion.component';
+
 import { DeconnexionComponent } from './shared/deconnexion/deconnexion.component';
 import { AnnonceCollaborateurComponent } from './shared/annonce-collaborateur/annonce-collaborateur.component';
 import { AnnonceCollaborateurService } from './services/annonce-collaborateur.service';
@@ -53,6 +57,7 @@ const appRoutes: Routes = [
     VehiculeSocieteComponent,
     VehiculeCovoiturageCreationComponent,
     HoraireCovoiturageCreationComponent,
+    CritereReservationComponent,
     DeconnexionComponent,
     DetaisVehiculeComponent,
     ConnexionComponent,
