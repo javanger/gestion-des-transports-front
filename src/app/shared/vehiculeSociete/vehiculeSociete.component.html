@@ -1,16 +1,16 @@
 <div>
 
   <!--Card image-->
-  <img class="img-fluid" src= {{vehiculeSociete.urlPhoto}} alt="Card image cap">
+  <img class="img-fluid" src="{{vehiculeSociete?.urlPhoto}}" alt="Card image cap">
 
   <!--Card content-->
   <div class="card-body">
       <!--Title-->
-      <h4 class="card-title"> {{vehiculeSociete.immatriculation}}
-        </h4>
+      <a href="admin/vehicules/{{vehiculeSociete?.immatriculation}}"><h4 class="card-title red-text" > {{vehiculeSociete?.immatriculation}}
+        </h4></a>
       <!--Text-->
-      <p>{{vehiculeSociete.marque}} - {{vehiculeSociete.modele}}</p>
-      <p>{{CategorieVehicule[vehiculeSociete.categorie]}}</p>
+      <p>{{vehiculeSociete?.marque}} - {{vehiculeSociete?.modele}}</p>
+      <p>{{CategorieVehicule[vehiculeSociete?.categorie]}}</p>
       
 
       

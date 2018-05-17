@@ -27,7 +27,7 @@ export class ListerVehiculeComponent implements OnInit {
     this.sVehicule.ajouterVehicule(this.ajoutVehicule).subscribe((data:any) => {
       this.ajoutVehicule = data;
      })
-     window.location.reload(false);
+     //window.location.reload(false);
    }
   ngOnInit() {
     // Ajouts des option pour le select des catégories

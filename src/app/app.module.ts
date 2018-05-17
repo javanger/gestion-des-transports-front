@@ -35,12 +35,15 @@ import { PageConnexionComponent } from './pages/connexion/pageConnexion.componen
 
 import { AnnonceCollaborateurComponent } from './shared/annonce-collaborateur/annonce-collaborateur.component';
 const appRoutes: Routes = [
-  { path: 'collaborateur/reservations', component: ListeReservationComponent }, // Réservation
-  { path: 'collaborateur/annonces', component: AnnonceCollaborateurComponent }, // Annonce
-  { path: 'collaborateur/statistiques', component: MenuComponent }, // Statistique
-  { path: 'admin/vehicules', component : ListerVehiculeComponent}, // lister véhicules
-  { path: 'vehicules/:immatriculation', component: DetaisVehiculeComponent }, // détails d'une véhicule
-  { path: 'connexion', component: PageConnexionComponent } // connexion
+  { path: 'connexion', component: PageConnexionComponent }, // connexion
+  //Pages de collaborateurs
+  { path: 'collaborateur/reservations', component: ListeReservationComponent }, // Liste des réservations
+  { path: 'collaborateur/reservations/creer', component: ReserverCovoiturageComponent }, // Création d'une reservation de covoiturage
+  { path: 'collaborateur/annonces', component: AnnonceCollaborateurComponent }, // Liste des annonces
+  { path: 'collaborateur/annonces/creer', component: CreerAnnonceComponent }, // Création des annonces
+  //Pages des admins
+  { path: 'admin/vehicules', component : ListerVehiculeComponent}, // Liste des véhicules
+  { path: 'admin/vehicules/:immatriculation', component: DetaisVehiculeComponent }, // Détails d'un véhicule
 ];
 
 @NgModule({
