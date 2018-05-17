@@ -38,16 +38,16 @@ export abstract class Vehicule {
 }
 
 export class VehiculeSociete extends Vehicule{
+  nbPlaces: number;
   categorie: CategorieVehicule;
   urlPhoto: string;
-  nbPlaces: number;
 
 
-  constructor(obj:any,categorie:CategorieVehicule, urlPhoto:string, nbPlaces:number){
+  constructor(obj:any, nbPlaces:number, categorie:CategorieVehicule, urlPhoto:string){
     super(obj);
+    this.nbPlaces =nbPlaces
     this.categorie=categorie
     this.urlPhoto=urlPhoto
-    this.nbPlaces =nbPlaces
   }
 }
 
